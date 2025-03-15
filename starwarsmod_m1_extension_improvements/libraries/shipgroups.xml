@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- Overhaul ship selection to favour more efficient economic ships, along with other fixes -->
+	
+	<!-- ############## -->
+    <!-- MAJOR FACTIONS -->
+    <!-- ############## -->
+	<replace sel="//groups/group[@name='galempire_trader_container_m']">
+		<group name="galempire_trader_container_m">
+			<select macro="impgozanti_at_macro" weight="95" />
+			<select macro="lambda_shuttle_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='ascendancy_trader_container_m']">
+		<group name="ascendancy_trader_container_m">
+			<select macro="impgozanti_at_macro" weight="95" />
+			<select macro="lambda_shuttle_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='newrepublic_trader_container_l']">
+		<group name="newrepublic_trader_container_l">
+			<select macro="pelta_01_macro" weight="5" />
+			<select macro="responder_frigate_trade_macro" weight="95" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='newrepublic_trader_container_m']">
+		<group name="newrepublic_trader_container_m">
+			<select macro="gr75a_macro" weight="97" />
+			<select macro="yt1300_02_a_macro" weight="2" />
+			<select macro="vcx100_macro" weight="1" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='newrepublic_miner_solid_m']">
+		<group name="newrepublic_miner_solid_m">
+			<select macro="rebel_tanker_solid_macro" weight="95" />
+			<select macro="gozanti_civ_miner_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='commerceguild_trader_container_m']">
+		<group name="commerceguild_trader_container_m">
+			<select macro="cis_repair_macro" weight="95" />
+			<select macro="aeg77t_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='commerceguild_miner_solid_m']">
+		<group name="commerceguild_miner_solid_m">
+			<select macro="actioniv_solid_macro" weight="95" />
+			<select macro="gozanti_civ_miner_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='corporate_trader_container_l']">
+		<group name="corporate_trader_container_l">
+			<select macro="neutronstar_trade_macro" weight="3" />
+			<select macro="acclamator1_macro" weight="95" />
+			<select macro="pelta_01_macro" weight="2" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='corporate_trader_container_m']">
+		<group name="corporate_trader_container_m">
+			<select macro="css1_macro" weight="95" />
+			<select macro="cr70_01con_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='corporate_miner_solid_m']">
+		<group name="corporate_miner_solid_m">
+			<select macro="actioniv_solid_macro" weight="95" />
+			<select macro="gozanti_civ_miner_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='mandodw_trader_container_l']">
+		<group name="mandodw_trader_container_l">
+			<select macro="neutronstar_trade_macro" weight="98" />
+			<select macro="praetorian_01_macro" weight="2" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='huttcartel_trader_container_l']">
+		<group name="huttcartel_trader_container_l">
+			<select macro="neutronstar_trade_macro" weight="98" />
+			<select macro="praetorian_01_macro" weight="1" />
+			<select macro="civ_l_transport_macro" weight="1" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='huttcartel_trader_container_m']">
+		<group name="huttcartel_trader_container_m">
+			<select macro="gozanti_croc_macro" weight="38" />
+			<select macro="actioniv_macro" weight="60" />
+			<select macro="yv666_macro" weight="1" />
+			<select macro="sorosub3000_macro" weight="1" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='anoat_trader_container_l']">
+		<group name="anoat_trader_container_l">
+			<select macro="neutronstar_trade_macro" weight="5" />
+			<select macro="valor_01_macro" weight="95" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='anoat_trader_container_m']">
+		<group name="anoat_trader_container_m">
+			<select macro="actioniv_macro" weight="95" />
+			<select macro="gozanti_civ_01_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='anoat_trader_courier_m']">
+		<group name="anoat_trader_courier_m">
+			<select macro="yt1300_02_a_macro" weight="100" />
+		</group>
+	</replace>
+	
+	<!-- ############## -->
+    <!-- MINOR FACTIONS -->
+    <!-- ############## -->
+	
+	<replace sel="//groups/group[@name='kamino_trader_container_m']">
+		<group name="kamino_trader_container_m">
+			<select macro="cr70_01con_macro" weight="100" />
+		</group>
+	</replace>
+	
+	<!-- ######### -->
+    <!-- CIVILIANS -->
+    <!-- ######### -->
+	<replace sel="//groups/group[@name='civilian_trader_container_l']">
+		<group name="civilian_trader_container_l">
+			<select macro="neutronstar_trade_macro" weight="98" />
+			<select macro="praetorian_01_macro" weight="1" />
+			<select macro="civ_l_transport_macro" weight="1" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='civilian_trader_corporate_m']">
+		<group name="civilian_trader_corporate_m">
+			<select macro="bff_01_macro" weight="5"/>
+			<select macro="css1_macro" weight="90"/>
+			<select macro="actioniv_macro" weight="5"/>
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='civilian_trader_outerrim_m']">
+		<group name="civilian_trader_outerrim_m">
+			<select macro="actioniv_macro" weight="70"/>
+			<select macro="gozanti_croc_macro" weight="30"/>
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='civilian_trader_core_m']">
+		<group name="civilian_trader_core_m">
+			<select macro="gozanti_civ_01_macro" weight="3" />
+			<select macro="bff_01_macro" weight="5" />
+			<select macro="css1_macro" weight="90" />
+			<select macro="yt1300_02_a_macro" weight="2" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='civilian_trader_bulk_m']">
+		<group name="civilian_trader_bulk_m">
+			<select macro="gozanti_civ_01_macro" weight="2" />
+			<select macro="bff_01_macro" weight="3" />
+			<select macro="css1_macro" weight="95" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='civilian_trader_shuttle_m']">
+		<group name="civilian_trader_shuttle_m">
+			<select macro="vcx100_macro" weight="10" />
+			<select macro="yv666_macro" weight="5" />
+			<select macro="yt1300_02_a_macro" weight="10" />
+			<select macro="mantis_macro" weight="75" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='civilian_miner_solid_m']">
+		<group name="civilian_miner_solid_m">
+			<select macro="actioniv_solid_macro" weight="80" />
+			<select macro="gozanti_civ_miner_macro" weight="5" />
+			<select macro="rebel_tanker_solid_macro" weight="15" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='mng_miner']">
+		<group name="mng_miner">
+			<select macro="actioniv_solid_macro" weight="60" />
+			<select macro="gozanti_civ_miner_macro" weight="20" />
+			<select macro="rebel_tanker_solid_macro" weight="20" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='sienar_miner_solid_m']">
+		<group name="sienar_miner_solid_m">
+			<select macro="actioniv_solid_macro" weight="75" />
+			<select macro="berea_shuttle_macro" weight="25" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='sienar_miner_liquid_m']">
+		<group name="sienar_miner_liquid_m">
+			<select macro="actioniv_gas_macro" weight="75" />
+			<select macro="berea_shuttle_gas_macro" weight="25" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='bankingclan_trader_container_l']">
+		<group name="bankingclan_trader_container_l">
+			<select macro="neutronstar_trade_macro" weight="10" />
+			<select macro="acclamator1_macro" weight="90" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='bankingclan_trader_container_m']">
+		<group name="bankingclan_trader_container_m">
+			<select macro="gozanti_civ_01_macro" weight="10"/>
+			<select macro="bff_01_macro" weight="15"/>
+			<select macro="actioniv_macro" weight="75"/>
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='tradefederation_trader_outerrim_m']">
+		<group name="tradefederation_trader_outerrim_m">
+			<select macro="actioniv_macro" weight="85"/>
+			<select macro="bff_01_macro" weight="15"/>
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='tradefederation_trader_container_l']">
+		<group name="tradefederation_trader_container_l">
+			<select macro="hardcell_trade_macro" weight="20" />
+			<select macro="c9979_macro" weight="20" />
+			<select macro="diamond_cruiser_civ_macro" weight="60" />
+		</group>
+	</replace>
+	
+	<!-- ####### -->
+    <!-- PIRATES -->
+    <!-- ####### -->
+	<replace sel="//groups/group[@name='blacksun_trader_container_m']">
+		<group name="blacksun_trader_container_m">
+			<select macro="gozanti_croc_macro" weight="90"/>
+			<select macro="yv666_macro" weight="10"/>
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='valarian_trader_container_m']">
+		<group name="valarian_trader_container_m">
+			<select macro="css1_macro" weight="70" />
+			<select macro="actioniv_macro" weight="30" />
+		</group>
+	</replace>
+</diff>

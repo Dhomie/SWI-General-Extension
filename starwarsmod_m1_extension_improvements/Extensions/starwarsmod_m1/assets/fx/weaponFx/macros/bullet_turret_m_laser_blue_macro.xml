@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Exported by: Markus (192.168.3.123) at 04.02.2019_11-22-02-->
+<diff>
+	<!-- Change Green PD Laser attributes -->
+	<replace sel="/macros/macro[@name='bullet_turret_m_laser_blue_macro']">
+		<macro name="bullet_turret_m_laser_blue_macro" class="bullet">
+			<component ref="bullet_xs_blue_turbo" />
+			<properties>
+				<!--<ammunition value="3" reload="2" />-->
+				<bullet speed="2500" lifetime="1.55" amount="1" barrelamount="1" icon="weapon_gatling_mk1" timediff="0.015" angle="0.02" maxhits="1" ricochet="0" scale="0" attach="0" />
+				<reload rate="3" />
+				<damage value="180" shield="90"/>
+				<effects>
+					<impact ref="impact_laser_s_red" />
+					<launch ref="muzzle_laser_s_blue" />
+				</effects>
+				<weapon system="turret_midrange" />
+			</properties>
+		</macro>
+	</replace>
+</diff>

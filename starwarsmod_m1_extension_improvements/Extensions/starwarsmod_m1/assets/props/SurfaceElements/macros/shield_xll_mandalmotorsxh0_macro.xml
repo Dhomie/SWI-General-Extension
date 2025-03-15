@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+	<replace sel="/macros/macro/properties/recharge">
+		<recharge max="1250000" rate="540" delay="0" /> 
+	</replace>
+</diff>

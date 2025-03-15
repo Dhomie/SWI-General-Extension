@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<diff>
+	<!-- Expand the food basket to contain all wares necessary for worker upkeep production -->
+	<add sel="/baskets/basket[@id='food']/wares">
+		<ware ware="energycells" />
+		<ware ware="meat" />
+		<ware ware="spices" />
+		<ware ware="wheat" />
+	</add>
+</diff>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+	<!--
+	Default Relation Ranges:
+	  self:          1.0  to  1.0
+	  ally:          0.5  to  1.0
+	  member:        0.1  to  1.0
+	  friend:        0.01 to  1.0
+	  neutral:      -0.01 to  0.01
+	  enemy:        -1.0  to -0.01
+	  killmilitary: -1.0  to -0.1
+	  kill:         -1.0  to -0.32
+	  nemesis:      -1.0  to -1.0
+
+	UI value mapping (analogously for negative values):
+	  1.0       = 30
+	  0.5       = 27
+	  0.32      = 25
+	  0.1       = 20 
+	  0.032     = 15
+	  0.01      = 10
+	  0.0032    = 5
+
+	  -0.01 to -0.099999 - factions do not trade
+	  -0.1 - start to capture territory of one another
+
+	These values are fixed. Between them, logarithmic interpolation is used. Approximate formulas:
+	  uivalue = 10 * log10(relation * 1000)
+	  relation = 10^(uivalue / 10) / 1000
+	Between -0.0032 and +0.0032 (UI -5...+5) linear interpolation is used, and 0.00064 equates to one UI value step.
+
+	Note: Relations defined here apply only to gamestart. Relations may change through gameplay and/or plot.
+	-->
+
+<!-- Licenses -->
+	<!-- Allow the CSA to order whatever S/M ships they can from the InCom wharf with their own equipment -->
+	<add sel="/factions/faction[@id='corporate']/licences">
+		<licence type="generaluseequipment" factions="incom" />
+		<licence type="generaluseship" factions="incom" />
+	</add>
+</diff>

@@ -1,0 +1,1549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+      <!-- JOB TAGS
+		Patrol Coordination Center (without invasions): commandeerable=true, military
+		Invasions: commandeerable=true, factionlogic, military, 
+		Economy factionlogic: factionlogic, freighter (miner, tug, trader)
+		Expedition: commandeerable=true, expedition, military, factionlogic  -->
+
+
+      <!-- Factions setup
+		Galactic Empire - The infamous Imperial doctrine, focus on XLs, with swarms of cheap S escorts, L patrols, M patrols, almost no S ship patrols/police
+		Ascendancy - Less resources, focus on high quality XL and unique L ships with less but more advanced S ships. Advanced S ships as police/patrol.
+		New Republic - XL centered fleets with serious escorts, independent L, M, and S ships, with a priority on S ship superiority
+		Rebel Alliance - Only Expedition forces vs 2 Imperial remnants and Sith, by default they're neutral to others
+		Hutt Cartel - Focus on a few Hutt Venators, rag-tag L ships with S ships fleets, really just for enforcing and defense
+		Anoat Federation - Focus on militia L ships with S ships fleets
+		Corporate Sector Authority - Venator centered fleets with escorts. Arquitens and CR-70 patrols, Arc-170 police
+		Mandalorian Death Watch - XL centered fleets with escorts, leases a Venator from the Hutts, focus on L Dreadnoughts, M and S ships
+		Independent Commerce Guild - Focus on XL ships, L ships as patrols and escort, swarms of S droids
+		Sith Empire - XL Harrowers with L Terminus escorts, with swarms of high-tier S ships
+		
+		General Economy: S couriers reduced to bare minimum, higher priortiy for more efficient L and M transports-->
+	
+	
+	<!-- GALACTIC EMPIRE -->
+    <!-- Initial Sectors: 22 -->
+    <!-- Civilian Faction: Bancking Clan -->
+	
+	<!-- XXL Executor patrol, gets advanced S ships, in exchange for the ISD and Vindicator escorts -->
+	<replace sel="//jobs/job[@id='galempire_ssd_patrol']/subordinates">
+		<subordinates>
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+		  <subordinate job="galempire_tied_trio_leader" />
+		  <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_tied_trio_leader" />
+          <subordinate job="galempire_scimitar_trio_leader" />
+          <subordinate job="galempire_scimitar_trio_leader" />
+          <subordinate job="galempire_scimitar_trio_leader" />
+          <subordinate job="galempire_scimitar_trio_leader" />
+          <subordinate job="galempire_scimitar_trio_leader" />
+          <subordinate job="galempire_scimitar_trio_leader" />
+        </subordinates>
+	</replace>
+	
+	<!-- Originally a duo of XL ISDs layout excluded from surgical strikes, it gets more non-Carrier L escorts instead -->
+	<replace sel="//jobs/job[@id='galempire_isd_patrol_dual']/subordinates">
+		<subordinates>
+			<subordinate job="galempire_immobilizer_escort_l" />
+			<subordinate job="galempire_enforcer_escort_l" />
+			<subordinate job="galempire_enforcer_escort_l" />
+			<subordinate job="galempire_lancerfrigate_escort_l" />
+			<subordinate job="galempire_lancerfrigate_escort_l" />
+			<subordinate job="galempire_raider_escort_m" />
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tiei_trio_leader" />
+			<subordinate job="galempire_tiei_trio_leader" />
+			<subordinate job="galempire_tiei_trio_leader" />
+			<subordinate job="galempire_tiei_trio_leader" />
+			<subordinate job="galempire_tieb_trio_leader" />
+			<subordinate job="galempire_tieb_trio_leader" />
+			<subordinate job="galempire_tieb_trio_leader" />
+			<subordinate job="galempire_tieb_trio_leader" />
+			<subordinate job="galempire_tied_trio_leader" />
+			<subordinate job="galempire_scimitar_trio_leader" />
+			<subordinate job="galempire_scimitar_trio_leader" />
+			<subordinate job="galempire_tierandom_trio_leader" />
+        </subordinates>
+	</replace>
+	
+	<!-- Originally a duo of XL ISDs layout specifically for surgical strikes, it gets more non-Carrier L escorts instead -->
+	<replace sel="//jobs/job[@id='galempire_isd_strike']/subordinates">
+		<subordinates>
+			<subordinate job="galempire_immobilizer_escort_l" />
+			<subordinate job="galempire_enforcer_escort_l" />
+			<subordinate job="galempire_enforcer_escort_l" />
+			<subordinate job="galempire_lancerfrigate_escort_l" />
+			<subordinate job="galempire_lancerfrigate_escort_l" />
+			<subordinate job="galempire_raider_escort_m" />
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tiei_trio_leader" />
+			<subordinate job="galempire_tiei_trio_leader" />
+			<subordinate job="galempire_tiei_trio_leader" />
+			<subordinate job="galempire_tiei_trio_leader" />
+			<subordinate job="galempire_tieb_trio_leader" />
+			<subordinate job="galempire_tieb_trio_leader" />
+			<subordinate job="galempire_tieb_trio_leader" />
+			<subordinate job="galempire_tieb_trio_leader" />
+			<subordinate job="galempire_tied_trio_leader" />
+			<subordinate job="galempire_scimitar_trio_leader" />
+			<subordinate job="galempire_scimitar_trio_leader" />
+			<subordinate job="galempire_tierandom_trio_leader" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Arrestor/Vindicator patrol, less S ships as their S capacity is 18/15 respectively -->
+	<replace sel="//jobs/job[@id='galempire_arrestor_patrol_l_mission']/subordinates">
+		<subordinates>
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tief_trio_leader" />
+			<subordinate job="galempire_tiea_trio_leader" />
+			<subordinate job="galempire_tiei_trio_leader" />
+			<subordinate job="galempire_tieb_trio_leader" />
+        </subordinates>
+	</replace>
+	
+	<!-- Add these jobs to be picked for invasion purposes -->
+	<replace sel="//jobs/job[@id='galempire_vsd2_patrol_l_mission']/category/@tags">[factionlogic, military, vsd2]</replace>
+	<replace sel="//jobs/job[@id='galempire_arrestor_patrol_l_mission']/category/@tags">[factionlogic, military, arrestor]</replace>
+	
+	<!-- Fixes this one to rebuild -->
+	<replace sel="//jobs/job[@id='galempire_energycell_trader_l_critical']/modifiers">
+		<modifiers rebuild="true" commandeerable="true" />
+	</replace>
+	
+	<!-- No escorts for Galactic Empire economic ships -->
+	<remove sel="//jobs/job[@id='galempire_rhydonium_miner_l_mineral']/subordinates" />
+	
+	<replace sel="//jobs/job[@id='galempire_energycell_trader_l']/quota">
+		<quota galaxy="2" maxgalaxy="4" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='galempire_energycell_trader_m']/quota">
+		<quota galaxy="4" maxgalaxy="8" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='galempire_refinedmineral_trader_l']/quota">
+		<quota galaxy="2" maxgalaxy="4" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='galempire_refinedmineral_trader_m']/quota">
+		<quota galaxy="4" maxgalaxy="8" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='galempire_tech_trader_l']/quota">
+		<quota galaxy="3" maxgalaxy="5" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='galempire_tech_trader_m']/quota">
+		<quota galaxy="6" maxgalaxy="10" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='galempire_rhydonium_miner_l_mineral']/quota">
+		<quota galaxy="5" maxgalaxy="10" sector="2" />
+	</replace>
+	<replace sel="//jobs/job[@id='galempire_free_miner_m_mineral']/quota">
+		<quota galaxy="20" />
+	</replace>
+
+	<!-- 22 -> 2 -->
+	<replace sel="//jobs/job[@id='galempire_tech_trader_s']/quota">
+		<quota galaxy="2" cluster="1" />
+	</replace>
+	
+	<!-- 10 -> 4/1 -->
+	<replace sel="//jobs/job[@id='galempire_construction_vessel_l']/quota">
+		<quota galaxy="4" sector="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='galempire_construction_vessel_l_focused']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- 8/24 -> 4/8 -->
+	<replace sel="//jobs/job[@id='galempire_scout_patrol_s']/quota">
+		<quota galaxy="4" maxgalaxy="8" cluster="2" />
+	</replace>
+	
+	<!-- 12 -> 10 -->
+	<replace sel="//jobs/job[@id='bankingclan_free_miner_m_ice']/quota">
+		<quota galaxy="10" sector="1" />
+	</replace>
+	
+	<!-- 2 -> 1 -->
+	<replace sel="//jobs/job[@id='bankingclan_construction_vessel_l_playeronly']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- No escorts for Sinear economic ships -->
+	<remove sel="//jobs/job[@id='sienar_ship_construction_trader_l']/subordinates" />
+	<remove sel="//jobs/job[@id='sienar_equipment_trader_l']/subordinates" />
+	
+	<!-- IMPERIAL ASCENDANCY -->
+    <!-- Initial Sectors: 11 -->
+    <!-- Civilian Faction: Baobab -->
+	
+	<!-- XXL Bellator patrol, gets advanced S ships -->
+	<replace sel="//jobs/job[@id='ascendancy_bellator_patrol']/subordinates">
+		<subordinates>
+          <subordinate job="ascendancy_tiea_trio_leader" />
+          <subordinate job="ascendancy_tiea_trio_leader" />
+          <subordinate job="ascendancy_tiea_trio_leader" />
+          <subordinate job="ascendancy_tiea_trio_leader" />
+          <subordinate job="ascendancy_tiea_trio_leader" />
+          <subordinate job="ascendancy_tiea_trio_leader" />
+          <subordinate job="ascendancy_tied_trio_leader" />
+          <subordinate job="ascendancy_tied_trio_leader" />
+          <subordinate job="ascendancy_tied_trio_leader" />
+          <subordinate job="ascendancy_tied_trio_leader" />
+          <subordinate job="ascendancy_tied_trio_leader" />
+          <subordinate job="ascendancy_tied_trio_leader" />
+          <subordinate job="ascendancy_procursator_escort" />
+          <subordinate job="ascendancy_procursator_escort" />
+          <subordinate job="ascendancy_heavyescort_escort_l" />
+          <subordinate job="ascendancy_heavyescort_escort_l" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL ISD-I patrol, gets better S ships-->
+	<replace sel="//jobs/job[@id='ascendancy_isd_patrol_single']/subordinates">
+		<subordinates>
+			<subordinate job="ascendancy_heavyescort_escort_l" />
+			<subordinate job="ascendancy_heavyescort_escort_l" />
+			<subordinate job="ascendancy_lancerfrigate_escort_l" />
+			<subordinate job="ascendancy_lancerfrigate_escort_l" />
+			<subordinate job="ascendancy_raider_escort_m" />
+			<subordinate job="ascendancy_tief_trio_leader" />
+			<subordinate job="ascendancy_tief_trio_leader" />
+			<subordinate job="ascendancy_tiei_trio_leader" />
+			<subordinate job="ascendancy_tiei_trio_leader" />
+			<subordinate job="ascendancy_tieb_trio_leader" />
+			<subordinate job="ascendancy_tieb_trio_leader" />
+			<subordinate job="ascendancy_tiea_trio_leader" />
+			<subordinate job="ascendancy_tiea_trio_leader" />
+			<subordinate job="ascendancy_tiea_trio_leader" />
+			<subordinate job="ascendancy_tied_trio_leader" />
+			<subordinate job="ascendancy_tied_trio_leader" />
+			<subordinate job="ascendancy_tied_trio_leader" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL PSD patrol with no direct S escorts, instead it gets a Carrier escort, with some additions -->
+	<replace sel="//jobs/job[@id='ascendancy_procursator_patrol_single']/subordinates">
+		<subordinates>
+			<subordinate job="ascendancy_heavyescort_escort_l" />
+			<subordinate job="ascendancy_light_cruiser_escort_l" />
+			<subordinate job="ascendancy_light_cruiser_escort_l" />
+			<subordinate job="ascendancy_lancerfrigate_escort_l" />
+			<subordinate job="ascendancy_lancerfrigate_escort_l" />
+			<subordinate job="ascendancy_raider_escort_m" />
+			<subordinate job="ascendancy_raider_escort_m" />
+        </subordinates>
+	</replace>
+	
+	<!-- L ILC with 3 less, but better S ships, and 2 extra M escorts -->
+	<replace sel="//jobs/job[@id='ascendancy_lightcruiser_patrol_l_mission']/subordinates">
+		<subordinates>
+			<subordinate job="ascendancy_raider_escort_m" />
+			<subordinate job="ascendancy_raider_escort_m" />
+			<subordinate job="ascendancy_tierandom_trio_leader" />
+        </subordinates>
+	</replace>
+	
+	<!-- Add these jobs to be picked for invasion purposes -->
+	<replace sel="//jobs/job[@id='ascendancy_heavyescort_patrol_l_mission']/category/@tags">[factionlogic, military, heavyescort]</replace>
+	<replace sel="//jobs/job[@id='ascendancy_lightcruiser_patrol_l_mission']/category/@tags">[factionlogic, military, lightcruiser]</replace>
+	
+	<!-- Fixes this one to rebuild -->
+	<replace sel="//jobs/job[@id='ascendancy_energycell_trader_l_critical']/modifiers">
+		<modifiers rebuild="true" commandeerable="true" />
+	</replace>
+	
+	<!-- No escorts for Imperial Ascendancy economic ships -->
+	<remove sel="//jobs/job[@id='ascendancy_rhydonium_miner_l_mineral']/subordinates" />
+	
+	<replace sel="//jobs/job[@id='ascendancy_energycell_trader_l']/quota">
+		<quota galaxy="2" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='ascendancy_energycell_trader_m']/quota">
+		<quota galaxy="4" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='ascendancy_refinedmineral_trader_l']/quota">
+		<quota galaxy="2" maxgalaxy="4" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='ascendancy_refinedmineral_trader_m']/quota">
+		<quota galaxy="4" maxgalaxy="6" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='ascendancy_tech_trader_l']/quota">
+		<quota galaxy="2" maxgalaxy="4" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='ascendancy_tech_trader_m']/quota">
+		<quota galaxy="4" maxgalaxy="8" cluster="1" />
+	</replace>
+	
+	<!-- 22 -> 2 -->
+	<replace sel="//jobs/job[@id='ascendancy_tech_trader_s']/quota">
+		<quota galaxy="2" cluster="1" />
+	</replace>
+	
+	<!-- 8/7 -> 3/1 -->
+	<replace sel="//jobs/job[@id='ascendancy_construction_vessel_l']/quota">
+		<quota galaxy="3" sector="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='ascendancy_construction_vessel_l_focused']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- 8/24 -> 4/8 -->
+	<replace sel="//jobs/job[@id='ascendancy_scout_patrol_s']/quota">
+		<quota galaxy="4" maxgalaxy="8" cluster="2" />
+	</replace>
+	
+	<!-- NEW REPUBLIC -->
+    <!-- Initial Sectors: 39 -->
+    <!-- Civilian Faction: Twin Suns -->
+	
+	<!-- Late XL MC80 Home One patrol, MC80 Liberty XL escorts, and more M and L escorts -->
+	<replace sel="//jobs/job[@id='newrepublic_mc80homeone_additional']/subordinates">
+		<subordinates>
+			<subordinate job="newrepublic_mc80l_escort_xl" />
+			<subordinate job="newrepublic_mc80l_escort_xl" />
+			<subordinate job="newrepublic_heavyescort_escort_l" />
+			<subordinate job="newrepublic_heavyescort_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_rogue_escort" />
+			<subordinate job="newrepublic_resupplier_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- Standard XL MC80 Home One patrol, MC80 Liberty XL escorts, and more M and L escorts -->
+	<replace sel="//jobs/job[@id='newrepublic_mc80homeone']/subordinates">
+		<subordinates>
+			<subordinate job="newrepublic_mc80l_escort_xl" />
+			<subordinate job="newrepublic_mc80l_escort_xl" />
+			<subordinate job="newrepublic_heavyescort_escort_l" />
+			<subordinate job="newrepublic_heavyescort_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_rogue_escort" />
+			<subordinate job="newrepublic_resupplier_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL MC80 Reef Home patrol, no Carrier escorts, more M and L ones -->
+	<replace sel="//jobs/job[@id='newrepublic_mc80r_patrol_mission']/subordinates">
+		<subordinates>
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_awing_trio" />
+			<subordinate job="newrepublic_awing_trio" />
+			<subordinate job="newrepublic_xwing_trio" />
+			<subordinate job="newrepublic_xwing_trio" />
+			<subordinate job="newrepublic_ywing_trio" />
+			<subordinate job="newrepublic_ywing_trio" />
+        </subordinates>
+	</replace>
+	
+	<!-- Refurbished ISD-I, no Carrier escorts, more S, M and L ones, and an Auxiliary -->
+	<replace sel="//jobs/job[@id='newrepublic_isd_patrol_dual']/subordinates">
+		<subordinates>
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_xwing_trio" />
+			<subordinate job="newrepublic_xwing_trio" />
+			<subordinate job="newrepublic_ywing_trio" />
+			<subordinate job="newrepublic_ywing_trio" />
+			<subordinate job="newrepublic_awing_trio" />
+			<subordinate job="newrepublic_awing_trio" />
+			<subordinate job="newrepublic_mixedfighters_escort" />
+			<subordinate job="newrepublic_mixedfighters_escort" />
+			<subordinate job="newrepublic_resupplier_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- Late MC80 Carrier, no XL escorts, but more M and L ones -->
+	<replace sel="//jobs/job[@id='newrepublic_mc80_fleetforce_additional']/subordinates">
+		<subordinates>
+			<subordinate job="newrepublic_heavyescort_escort_l" />
+			<subordinate job="newrepublic_heavyescort_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_mixedfighters_escort" />
+			<subordinate job="newrepublic_mixedfighters_escort" />
+			<subordinate job="newrepublic_xwing_trio" />
+			<subordinate job="newrepublic_xwing_trio" />
+			<subordinate job="newrepublic_ywing_trio" />
+			<subordinate job="newrepublic_ywing_trio" />
+			<subordinate job="newrepublic_bwing_trio" />
+			<subordinate job="newrepublic_bwing_trio" />
+			<subordinate job="newrepublic_awing_trio" />
+			<subordinate job="newrepublic_awing_trio" />
+			<subordinate job="newrepublic_resupplier_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- Standard MC80 Carrier, no XL escorts, but more M and L ones -->
+	<replace sel="//jobs/job[@id='newrepublic_mc80_fleetforce']/subordinates">
+		<subordinates>
+			<subordinate job="newrepublic_heavyescort_escort_l" />
+			<subordinate job="newrepublic_heavyescort_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_pelta_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_nebulon_escort_l" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_mixedfighters_escort" />
+			<subordinate job="newrepublic_mixedfighters_escort" />
+			<subordinate job="newrepublic_xwing_trio" />
+			<subordinate job="newrepublic_xwing_trio" />
+			<subordinate job="newrepublic_ywing_trio" />
+			<subordinate job="newrepublic_ywing_trio" />
+			<subordinate job="newrepublic_bwing_trio" />
+			<subordinate job="newrepublic_bwing_trio" />
+			<subordinate job="newrepublic_awing_trio" />
+			<subordinate job="newrepublic_awing_trio" />
+			<subordinate job="newrepublic_resupplier_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- MC80 Liberty escorts, no Carriers, only S, and M ones -->
+	<replace sel="//jobs/job[@id='newrepublic_mc80l_escort_xl']/subordinates">
+		<subordinates>
+			<subordinate job="newrepublic_mixedfighters_escort" />
+			<subordinate job="newrepublic_mixedfighters_escort" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+        </subordinates>
+	</replace>
+	
+	<!-- Add these jobs to be picked for invasion purposes -->
+	<replace sel="//jobs/job[@id='newrepublic_mc80r_patrol_mission']/category/@tags">[factionlogic, military, mc80r]</replace>
+	<replace sel="//jobs/job[@id='newrepublic_nebulon_patrol_l_mission']/category/@tags">[factionlogic, military, nebulon]</replace>
+	<replace sel="//jobs/job[@id='newrepublic_mc40_patrol_l_mission']/category/@tags">[factionlogic, military, mc40]</replace>
+	
+	<!-- Fixes this one to rebuild -->
+	<replace sel="//jobs/job[@id='newrepublic_energycell_trader_l_critical']/modifiers">
+		<modifiers rebuild="true" commandeerable="true" />
+	</replace>
+	
+	<replace sel="//jobs/job[@id='newrepublic_refinedmineral_trader_m']/quota">
+		<quota galaxy="10" maxgalaxy="15" cluster="2" />
+	</replace>
+	
+	<!-- 50 -> 4 -->
+	<replace sel="//jobs/job[@id='newrepublic_trader_s']/quota">
+		<quota galaxy="3" cluster="1" />
+	</replace>
+	
+	<!-- No escorts for New Republic economic ships -->
+	<remove sel="//jobs/job[@id='newrepublic_rhydonium_miner_l_mineral']/subordinates" />
+	
+	<!-- 15 -> 4/1 -->
+	<replace sel="//jobs/job[@id='newrepublic_construction_vessel_l']/quota">
+		<quota galaxy="4" sector="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='newrepublic_construction_vessel_l_focused']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- 15/25 -> 5/10 -->
+	<replace sel="//jobs/job[@id='newrepublic_scout_s']/quota">
+		<quota galaxy="5" maxgalaxy="10" cluster="1" />
+	</replace>
+	
+	<!-- 25/5 -> 20/5 -->
+	<replace sel="//jobs/job[@id='newrepublic_ship_construction_trader_m']/quota">
+		<quota galaxy="20" cluster="5" />
+	</replace>
+	<!-- 20/30 -> 10/20 -->
+	<replace sel="//jobs/job[@id='newrepublic_refinedmineral_trader_m']/quota">
+		<quota galaxy="10" maxgalaxy="20" cluster="2" />
+	</replace>
+	
+	<!-- 30 -> 20 -->
+	<replace sel="//jobs/job[@id='twinsuns_refinedmineral_trader_m']/quota">
+		<quota galaxy="20" cluster="1" />
+	</replace>
+	
+	<!-- 40 -> 30 -->
+	<replace sel="//jobs/job[@id='twinsuns_free_miner_m_liquid']/quota">
+		<quota galaxy="30" sector="3" />
+	</replace>
+	
+	<!-- 2 -> 1 -->
+	<replace sel="//jobs/job[@id='twinsuns_construction_vessel_l_playeronly']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- REBEL ALLIANCE -->
+	<!-- Initial Sectors: 1 -->
+    <!-- Minor Faction -->
+	
+	<!-- Original Home One Fleet, gets beefed up to resemble the one in ROTJ -->
+	<replace sel="//jobs/job[@id='rebelalliance_mc80homeone']/subordinates">
+		<subordinates>
+			<subordinate job="newrepublic_mc80l_escort_xl" />
+			<subordinate job="newrepublic_mc80l_escort_xl" />
+			<subordinate job="rebelalliance_nebulon_escort_l" />
+			<subordinate job="rebelalliance_nebulon_escort_l" />
+			<subordinate job="rebelalliance_nebulon_escort_l" />
+			<subordinate job="rebelalliance_nebulon_escort_l" />
+			<subordinate job="rebelalliance_mc40_escort_l" />
+			<subordinate job="rebelalliance_mc40_escort_l" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="rebelalliance_xwing_trio" />
+			<subordinate job="rebelalliance_xwing_trio" />
+			<subordinate job="rebelalliance_xwing_trio" />
+			<subordinate job="rebelalliance_ywing_trio" />
+			<subordinate job="rebelalliance_ywing_trio" />
+			<subordinate job="rebelalliance_ywing_trio" />
+			<subordinate job="rebelalliance_awing_trio" />
+			<subordinate job="rebelalliance_awing_trio" />
+			<subordinate job="rebelalliance_awing_trio" />
+			<subordinate job="rebelalliance_bwing_trio" />
+			<subordinate job="rebelalliance_bwing_trio" />
+			<subordinate job="rebelalliance_bwing_trio" />
+			<subordinate job="newrepublic_resupplier_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- Original MC75 Raddus Rebel Fleet during the attack on Scarif, gets mostly early M, and L escorts -->
+	<replace sel="//jobs/job[@id='rebelalliance_mc75_patrol']/subordinates">
+		<subordinates>
+			<subordinate job="rebelalliance_nebulon_escort_l" />
+			<subordinate job="rebelalliance_nebulon_escort_l" />
+			<subordinate job="rebelalliance_nebulon_escort_l" />
+			<subordinate job="rebelalliance_xwing_trio" />
+			<subordinate job="rebelalliance_xwing_trio" />
+			<subordinate job="rebelalliance_ywing_trio" />
+			<subordinate job="rebelalliance_ywing_trio" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+			<subordinate job="newrepublic_corvette_escort_m" />
+        </subordinates>
+	</replace>
+	
+	<!-- Rebel MC40 patrol, no Carrier escorts, but gets M escorts -->
+	<replace sel="//jobs/job[@id='rebelalliance_mc40_patrol']/subordinates">
+		<subordinates>
+			<subordinate job="rebelalliance_nebulon_escort_l" />
+			<subordinate job="rebelalliance_cr90_escort_m" />
+			<subordinate job="rebelalliance_cr90_escort_m" />
+			<subordinate job="rebelalliance_xwing_trio" />
+			<subordinate job="rebelalliance_ywing_trio" />
+			<subordinate job="rebelalliance_awing_trio" />
+        </subordinates>
+	</replace>
+	
+	<!-- 10/15 -> 2/4 -->
+	<replace sel="//jobs/job[@id='rebelalliance_scout_s']/quota">
+		<quota galaxy="2" maxgalaxy="4" cluster="1" />
+	</replace>
+	
+	<!-- ANOAT FEDERATION -->
+    <!-- Initial Sectors: 9 -->
+    <!-- Civilian Faction: Baobab -->
+	
+	<!-- L Nebulon patrol, gets an L Carrier, and extra M, as this isn't a common job -->
+	<replace sel="//jobs/job[@id='anoat_nebulon_patrol_l_sector']/subordinates">
+		<subordinates>
+			<subordinate job="anoat_quasar_escort_l" />
+			<subordinate job="anoat_corvette_escort_m" />
+			<subordinate job="anoat_corvette_escort_m" />
+			<subordinate job="anoat_lightfighter_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Valor patrol, gets direct S escorts as it has a Carrier build module (with the proper tag in this mod) -->
+	<replace sel="//jobs/job[@id='anoat_valor_patrol_l_sector']/subordinates">
+		<subordinates>
+			<subordinate job="anoat_neutronstar_escort_l" />
+			<subordinate job="anoat_neutronstar_escort_l" />
+			<subordinate job="anoat_corvette_escort_m" />
+			<subordinate job="anoat_corvette_escort_m" />
+			<subordinate job="anoat_corvette_escort_m" />
+			<subordinate job="anoat_mixedfighters_escort" />
+			<subordinate job="anoat_mixedfighters_escort" />
+			<subordinate job="anoat_mixedfighters_escort" />
+			<subordinate job="anoat_mixedfighters_escort" />
+			<subordinate job="anoat_mixedfighters_escort" />
+			<subordinate job="anoat_mixedfighters_escort" />
+        </subordinates>
+	</replace>
+	
+	
+	<!-- Add these jobs to be picked for invasion purposes -->
+	<replace sel="//jobs/job[@id='anoat_nebulon_patrol_l_mission']/category/@tags">[factionlogic, military, nebulon]</replace>
+	
+	<!-- 5/10 -> 2/3 -->
+	<replace sel="//jobs/job[@id='anoat_scout_s']/quota">
+		<quota galaxy="2" maxgalaxy="3" cluster="1" />
+	</replace>
+	
+	<!-- Fixes this one to rebuild -->
+	<replace sel="//jobs/job[@id='anoat_energycell_trader_l_critical']/modifiers">
+		<modifiers rebuild="true" commandeerable="true" />
+	</replace>
+	
+	<!-- 15 -> 5 -->
+	<replace sel="//jobs/job[@id='anoat_tech_trader_m_courier']/quota">
+		<quota galaxy="5" cluster="1" />
+	</replace>
+	
+	<!-- 10/20 -> 1/2 -->
+	<replace sel="//jobs/job[@id='anoat_universal_trader_s']/quota">
+		<quota galaxy="1" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='anoat_smuggler_trader_s']/quota">
+		<quota galaxy="2" cluster="1" />
+	</replace>
+	
+	<!-- No escorts for Anoat Federation economic ships -->
+	<remove sel="//jobs/job[@id='anoat_rhydonium_miner_l_mineral']/subordinates" />
+	
+	<!-- 5/3 -> 2/1 -->
+	<replace sel="//jobs/job[@id='anoat_construction_vessel_l']/quota">
+		<quota galaxy="2" sector="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='anoat_construction_vessel_l_focused']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- 25 -> 20 -->
+	<replace sel="//jobs/job[@id='baobab_refinedmineral_trader_m']/quota">
+		<quota galaxy="20" cluster="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='baobab_refinedgas_trader_m']/quota">
+		<quota galaxy="20" cluster="1" />
+	</replace>
+	
+	<!-- 9/3 -> 10/2 -->
+	<replace sel="//jobs/job[@id='baobab_free_miner_l_mineral']/quota">
+		<quota galaxy="10" sector="2" />
+	</replace>
+	
+	<!-- 6 -> 8 -->
+	<replace sel="//jobs/job[@id='baobab_free_miner_l_liquid']/quota">
+		<quota galaxy="8" sector="2" />
+	</replace>
+	
+	<!-- 25/5 -> 20/4 -->
+	<replace sel="//jobs/job[@id='baobab_free_miner_m_liquid']/quota">
+		<quota galaxy="20" sector="4" />
+	</replace>
+	<replace sel="//jobs/job[@id='baobab_free_miner_m_mineral']/quota">
+		<quota galaxy="20" sector="4" />
+	</replace>
+	
+	<!-- 6 -> 5 -->
+	<replace sel="//jobs/job[@id='baobab_free_miner_l_ice']/quota">
+		<quota galaxy="5" sector="1" />
+	</replace>
+	
+	<!-- 15 -> 10 -->
+	<replace sel="//jobs/job[@id='baobab_free_miner_m_ice']/quota">
+		<quota galaxy="10" sector="1" />
+	</replace>
+	
+	<!-- 2 -> 1 -->
+	<replace sel="//jobs/job[@id='baobab_construction_vessel_l_playeronly']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- CORPORATE SECTOR AUTHORITY -->
+    <!-- Initial Sectors: 20 -->
+    <!-- Civilian Faction: Tagge -->
+	
+	<!-- XXL Praetor patrol, with more direct fighters, and non-Carrier L escorts -->
+	<replace sel="//jobs/job[@id='corporate_praetor_patrol']/subordinates">
+		<subordinates>
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_ywing_s_escort" />
+			<subordinate job="corporate_ywing_s_escort" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_arc170_s_escort" />
+			<subordinate job="corporate_arc170_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL Venator patrol, with more L escorts -->
+	<replace sel="//jobs/job[@id='corporate_venator_patrol_single']/subordinates">
+		<subordinates>
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_ywing_s_escort" />
+			<subordinate job="corporate_ywing_s_escort" />
+			<subordinate job="corporate_ywing_s_escort" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_interceptros_s_escort" />
+			<subordinate job="corporate_interceptros_s_escort" />
+			<subordinate job="corporate_arc170_s_escort" />
+			<subordinate job="corporate_arc170_s_escort" />
+			<subordinate job="corporate_arc170_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL Trio Venator patrol, the XL escorts are replaced with more M, and L escorts, and a slightly better S complement -->
+	<replace sel="//jobs/job[@id='corporate_venator_patrol_trio']/subordinates">
+		<subordinates>
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_heavyescort_escort_l" />
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_ywing_s_escort" />
+			<subordinate job="corporate_ywing_s_escort" />
+			<subordinate job="corporate_ywing_s_escort" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_interceptros_s_escort" />
+			<subordinate job="corporate_interceptros_s_escort" />
+			<subordinate job="corporate_interceptros_s_escort" />
+			<subordinate job="corporate_arc170_s_escort" />
+			<subordinate job="corporate_arc170_s_escort" />
+			<subordinate job="corporate_arc170_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Proclamator patrol, with extra M escorts -->
+	<replace sel="//jobs/job[@id='corporate_proclamator_patrol_l']/subordinates">
+		<subordinates>
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_laat_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+			<subordinate job="corporate_fightermixed_s_escort" />
+			<subordinate job="corporate_interceptros_s_escort" />
+			<subordinate job="corporate_interceptros_s_escort" />
+			<subordinate job="corporate_ywing_s_escort" />
+			<subordinate job="corporate_ywing_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Arquitens patrol, with 2 M escorts instead of duo Arquitenses -->
+	<replace sel="//jobs/job[@id='corporate_arquitens_patrol_l']/subordinates">
+		<subordinates>
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_corvette_escort_m" />
+        </subordinates>
+	</replace>
+	
+	<!-- L escorts, featuring 2 LAATs, and 2 M escorts -->
+	<replace sel="//jobs/job[@id='corporate_heavyescort_escort_l']/subordinates">
+		<subordinates>
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_corvette_escort_m" />
+			<subordinate job="corporate_laat_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- Add these jobs to be picked for invasion purposes -->
+	<replace sel="//jobs/job[@id='corporate_vsd2_patrol_l_mission']/category/@tags">[factionlogic, military, vsd2]</replace>
+	
+	<!-- 8/20 -> 2/4 -->
+	<replace sel="//jobs/job[@id='corporate_scout_patrol_s']/quota">
+		<quota galaxy="2" maxgalaxy="4" cluster="1" />
+	</replace>
+	
+	<!-- Fixes this one to rebuild -->
+	<replace sel="//jobs/job[@id='corporate_energycell_trader_l_critical']/modifiers">
+		<modifiers rebuild="true" commandeerable="true" />
+	</replace>
+	
+	<!-- 30 -> 2 -->
+	<replace sel="//jobs/job[@id='corporate_equipment_trader_s']/quota">
+		<quota galaxy="2" cluster="1" />
+	</replace>
+	
+	<!-- 9 -> 10 -->
+	<replace sel="//jobs/job[@id='corporate_free_miner_l_mineral']/quota">
+		<quota galaxy="10" sector="1" />
+	</replace>
+	
+	<!-- 30/5 -> 20/4 -->
+	<replace sel="//jobs/job[@id='corporate_free_miner_m_mineral']/quota">
+		<quota galaxy="20" sector="4" />
+	</replace>
+	
+	<!-- No escorts for Corporate Sector Authority economic ships -->
+	<remove sel="//jobs/job[@id='corporate_rhydonium_miner_l_mineral']/subordinates" />
+	
+	<!-- 2/4 -> 1/2 -->
+	<replace sel="//jobs/job[@id='corporate_resupplier']/quota">
+		<quota galaxy="1" maxgalaxy="2" cluster="1" />
+	</replace>
+	
+	<!-- 13/12 -> 3/1 -->
+	<replace sel="//jobs/job[@id='corporate_construction_vessel_l']/quota">
+		<quota galaxy="3" sector="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='corporate_construction_vessel_l_focused']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- 5 -> 10 -->
+	<replace sel="//jobs/job[@id='tagge_trader_xl']/quota">
+		<quota galaxy="10" sector="1" />
+	</replace>
+	
+	<!-- 5 -> 10 -->
+	<replace sel="//jobs/job[@id='tagge_refinedmineral_trader_l']/quota">
+		<quota galaxy="10" cluster="1" />
+	</replace>
+	
+	<!-- 30 -> 20 -->
+	<replace sel="//jobs/job[@id='tagge_refinedmineral_trader_m']/quota">
+		<quota galaxy="20" cluster="1" />
+	</replace>
+	
+	<!-- 15 -> 10 -->
+	<replace sel="//jobs/job[@id='tagge_free_miner_m_ice']/quota">
+		<quota galaxy="10" sector="1" />
+	</replace>
+	
+	<!-- 6 -> 5 -->
+	<replace sel="//jobs/job[@id='tagge_construction_vessel_xl']/quota">
+		<quota galaxy="5" cluster="1" />
+	</replace>
+	
+	<!-- 2 -> 1 -->
+	<replace sel="//jobs/job[@id='tagge_construction_vessel_xl_playeronly']/quota">
+		<quota galaxy="1" cluster="1" />
+	</replace>
+	
+	<!-- INDEPENDENT COMMERCE GUILD -->
+    <!-- Initial Sectors: 20 -->
+    <!-- Civilian Faction: Trade Federation -->
+	
+	<!-- Note: ICG has 2 dedicated combat XLs, the Munificent, and the Recusant, so they'll have more XLs on the field -->
+	<!-- These 2 are picked randomly by default, along with their L roster (Hardcell, Diamond, Overseer) -->
+	
+	<!-- Late XL Lucrehulk patrols, no Providence, but plenty of M and non-Carrier XL escorts, the XL ones get the L escorts -->
+	<replace sel="//jobs/job[@id='commerceguild_lucrehulk_b_patrol_additional']/subordinates">
+		<subordinates>
+			<subordinate job="commerceguild_munificent_escort_xl" />
+			<subordinate job="commerceguild_munificent_escort_xl" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+        </subordinates>
+	</replace>
+	
+	<!-- Standard XL Lucrehulk patrol, no Providence, but plenty of M and non-Carrier XL escorts, with an Auxiliary, the XL ones get the L escorts -->
+	<replace sel="//jobs/job[@id='commerceguild_lucrehulk_b_patrol_single']/subordinates">
+		<subordinates>
+			<subordinate job="commerceguild_munificent_escort_xl" />
+			<subordinate job="commerceguild_munificent_escort_xl" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_resupplier_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL Allocator patrol, no XL escorts, but gets M/L escorts instead, also fixes the extra 4 S escorts that exceed its carrying capacity of 24 (18 + 6) -->
+	<replace sel="//jobs/job[@id='commerceguild_allocator_patrol_single']/subordinates">
+		<subordinates>
+			<subordinate job="commerceguild_heavyescort_escort_l" />
+			<subordinate job="commerceguild_heavyescort_escort_l" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_mixedfither_escort" />
+			<subordinate job="commerceguild_mixedfither_escort" />
+			<subordinate job="commerceguild_mixedfither_escort" />
+			<subordinate job="commerceguild_mixedfither_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- Standard XL Providence patrol, no XL escorts, but gets M/L escorts instead, and less S escorts -->
+	<replace sel="//jobs/job[@id='commerceguild_providence_patrol_single_mission']/subordinates">
+		<subordinates>
+			<subordinate job="commerceguild_geonosis_escort_l" />
+			<subordinate job="commerceguild_geonosis_escort_l" />
+			<subordinate job="commerceguild_heavyescort_escort_l" />
+			<subordinate job="commerceguild_heavyescort_escort_l" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+        </subordinates>
+	</replace>
+	
+	<!-- Originally a duo of XL Providences, it gets non-Carrier XL escorts instead, with some additions -->
+	<replace sel="//jobs/job[@id='commerceguild_providence_patrol_dual']/subordinates">
+		<subordinates>
+			<subordinate job="commerceguild_munificent_escort_xl" />
+			<subordinate job="commerceguild_munificent_escort_xl" />
+			<subordinate job="commerceguild_geonosis_escort_l" />
+			<subordinate job="commerceguild_geonosis_escort_l" />
+			<subordinate job="commerceguild_heavyescort_escort_l" />
+			<subordinate job="commerceguild_heavyescort_escort_l" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_vulture_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+			<subordinate job="commerceguild_hyena_group" />
+        </subordinates>
+	</replace>
+	
+	<!-- Originally a duo of L non-Carrier patrol, it gets M escorts instead -->
+	<replace sel="//jobs/job[@id='commerceguild_hardcell_patrol_l_sector']/subordinates">
+		<subordinates>
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+        </subordinates>
+	</replace>
+	
+	<!-- Originally a duo of L non-Carrier patrol, it gets M escorts instead -->
+	<replace sel="//jobs/job[@id='commerceguild_hardcell_patrol_l_sector']/subordinates">
+		<subordinates>
+			<subordinate job="commerceguild_escort_m" />
+			<subordinate job="commerceguild_escort_m" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL random escort, it gets an extra L random escort -->
+	<replace sel="//jobs/job[@id='commerceguild_munificent_escort_xl']/subordinates">
+		<subordinates>
+			<subordinate job="commerceguild_hardcell_escort_l" />
+			<subordinate job="commerceguild_hardcell_escort_l" />
+        </subordinates>
+	</replace>
+	
+	<!-- ADD L Ordance(?) escort, it gets an M escorts -->
+	<add sel="//jobs/job[@id='commerceguild_heavyescort_escort_l']">
+		<subordinates>
+			<subordinate job="commerceguild_escort_m" />
+        </subordinates>
+	</add>
+	
+	<!-- ADD L random escort, it gets an M escorts -->
+	<add sel="//jobs/job[@id='commerceguild_heavyescort_escort_l']">
+		<subordinates>
+			<subordinate job="commerceguild_escort_m" />
+        </subordinates>
+	</add>
+	
+	<!-- Add these jobs to be picked for invasion purposes -->
+	<replace sel="//jobs/job[@id='commerceguild_patrol_m_sector_mission']/category/@tags">[factionlogic, military, corvette]</replace>
+	
+	<!-- 10/20 -> 3/6 -->
+	<replace sel="//jobs/job[@id='commerceguild_scout_patrol_s']/quota">
+		<quota galaxy="3" maxgalaxy="6" cluster="1" />
+	</replace>
+	
+	<!-- Fixes this one to rebuild -->
+	<replace sel="//jobs/job[@id='commerceguild_energycell_trader_l_critical']/modifiers">
+		<modifiers rebuild="true" commandeerable="true" />
+	</replace>
+	
+	<!-- 30 -> 2 -->
+	<replace sel="//jobs/job[@id='commerceguild_shuttle_s']/quota">
+		<quota galaxy="2" cluster="1" />
+	</replace>
+	
+	<!-- 15/10 -> 3/1 -->
+	<replace sel="//jobs/job[@id='commerceguild_construction_vessel_l']/quota">
+		<quota galaxy="3" sector="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='commerceguild_construction_vessel_l_focused']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- No escorts for Trade Federation economic ships -->
+	<remove sel="//jobs/job[@id='tradefederation_trader_xl']/subordinates" />
+	
+	<!-- 30 -> 20 -->
+	<replace sel="//jobs/job[@id='tradefederation_refinedmineral_trader_m']/quota">
+		<quota galaxy="20" cluster="1" />
+	</replace>
+	
+	<!-- 15 -> 10 -->
+	<replace sel="//jobs/job[@id='tradefederation_free_miner_m_ice']/quota">
+		<quota galaxy="10" sector="1" />
+	</replace>
+	
+	<!-- 6 -> 5 -->
+	<replace sel="//jobs/job[@id='tradefederation_construction_vessel_l']/quota">
+		<quota galaxy="5" cluster="1" />
+	</replace>
+	
+	<!-- 7 -> 3 -->
+	<replace sel="//jobs/job[@id='tradefederation_construction_vessel_l_hutt']/quota">
+		<quota galaxy="3" cluster="1" />
+	</replace>
+	
+	<!-- 2 -> 1 -->
+	<replace sel="//jobs/job[@id='tradefederation_construction_vessel_l_playeronly']/quota">
+		<quota galaxy="1" cluster="1" />
+	</replace>
+	
+	<!-- HAPES CONSORTIUM -->
+    <!-- Initial Sectors: 3 -->
+	<!-- Minor Faction -->
+	
+	<!-- L Battle Dragon patrol, no extra L, but gets M escorts instead -->
+	<replace sel="//jobs/job[@id='hapes_dragon_patrol_l_mission']/subordinates">
+		<subordinates>
+			<subordinate job="hapes_corvette_escort_m" />
+			<subordinate job="hapes_corvette_escort_m" />
+			<subordinate job="hapes_myitil_s_escort" />
+			<subordinate job="hapes_myitil_s_escort" />
+			<subordinate job="hapes_myitil_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Battle Dragon patrol, no extra Dragon, but Nova, and M escorts instead but gets M escorts instead -->
+	<replace sel="//jobs/job[@id='hapes_dragon_patrol_l']/subordinates">
+		<subordinates>
+			<subordinate job="hapes_nebula_escort_l" />
+			<subordinate job="hapes_nebula_escort_l" />
+			<subordinate job="hapes_corvette_escort_m" />
+			<subordinate job="hapes_corvette_escort_m" />
+			<subordinate job="hapes_myitil_s_escort" />
+			<subordinate job="hapes_myitil_s_escort" />
+			<subordinate job="hapes_myitil_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Nova Massive Fleet, 2 less Dragons, but gets M escorts instead -->
+	<replace sel="//jobs/job[@id='hapes_nebula_force_l']/subordinates">
+		<subordinates>
+			<subordinate job="hapes_nebula_escort_l" />
+			<subordinate job="hapes_nebula_escort_l" />
+			<subordinate job="hapes_dragon_escort_l" />
+			<subordinate job="hapes_dragon_escort_l" />
+			<subordinate job="hapes_dragon_escort_l" />
+			<subordinate job="hapes_corvette_escort_m" />
+			<subordinate job="hapes_corvette_escort_m" />
+			<subordinate job="hapes_fightermixed_s_escort" />
+			<subordinate job="hapes_fightermixed_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- Add these jobs to used for expeditions and invasions -->
+	<replace sel="//jobs/job[@id='hapes_dragon_patrol_l_mission']/category/@tags">[factionlogic, military, expedition, dragon]</replace>
+	<replace sel="//jobs/job[@id='hapes_dragon_patrol_l']/category/@tags">[factionlogic, military, expedition, dragon, patrol]</replace>
+	<replace sel="//jobs/job[@id='hapes_nebula_force_l']/category/@tags">[factionlogic, military, expedition, nebula, patrol]</replace>
+	
+	<!-- Fixes this one to rebuild -->
+	<replace sel="//jobs/job[@id='hapes_energycell_trader_l_critical']/modifiers">
+		<modifiers rebuild="true" commandeerable="true" />
+	</replace>
+	
+	<!-- 10/5 -> 6/3 -->
+	<replace sel="//jobs/job[@id='hapes_free_miner_m_liquid']/quota">
+		<quota galaxy="6" cluster="3" />
+	</replace>
+	
+	<!-- 5/15 -> 2/4 -->
+	<replace sel="//jobs/job[@id='hapes_free_miner_m_ice']/quota">
+		<quota galaxy="2" maxgalaxy="4" sector="1" />
+	</replace>
+	
+	<!-- 4 -> 1 -->
+	<replace sel="//jobs/job[@id='hapes_construction_vessel_l_focused']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+	
+	<!-- HUTT CARTEL -->
+    <!-- Initial Sectors: 8 -->
+    <!-- Civilian Faction: No dedicated, but Trade Federation has jobs specifically for Hutt space -->
+	
+	<!-- XL Venator fleet, gets more L, and M escorts-->
+	<replace sel="//jobs/job[@id='huttcartel_venator_patrol']/subordinates">
+		<subordinates>
+			<subordinate job="huttcartel_heavyescort_escort_l" />
+			<subordinate job="huttcartel_heavyescort_escort_l" />
+			<subordinate job="huttcartel_heavyescort_escort_l" />
+			<subordinate job="huttcartel_heavyescort_escort_l" />
+			<subordinate job="huttcartel_corvette_escort_m" />
+			<subordinate job="huttcartel_corvette_escort_m" />
+			<subordinate job="huttcartel_ywing_trio" />
+			<subordinate job="huttcartel_ywing_trio" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L patrol, gets extra M/L escorts -->
+	<replace sel="//jobs/job[@id='huttcartel_heavyescort_patrol_l_mission']/subordinates">
+		<subordinates>
+			<subordinate job="huttcartel_neutronstar_escort_l" />
+			<subordinate job="huttcartel_neutronstar_escort_l" />
+			<subordinate job="huttcartel_corvette_escort_m" />
+			<subordinate job="huttcartel_corvette_escort_m" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L patrol, no L escorts, but gets M ones instead -->
+	<replace sel="//jobs/job[@id='huttcartel_heavyescort_patrol_l_mission']/subordinates">
+		<subordinates>
+			<subordinate job="huttcartel_corvette_escort_m" />
+			<subordinate job="huttcartel_corvette_escort_m" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L patrol, no L escorts, but gets M ones instead -->
+	<replace sel="//jobs/job[@id='huttcartel_heavyescort_patrol_l_sector']/subordinates">
+		<subordinates>
+			<subordinate job="huttcartel_corvette_escort_m" />
+			<subordinate job="huttcartel_corvette_escort_m" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+			<subordinate job="huttcartel_mixedfighters_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- Add these jobs to be picked for invasion purposes -->
+	<replace sel="//jobs/job[@id='huttcartel_heavyescort_patrol_l_mission']/category/@tags">[factionlogic, military, heavyescort]</replace>
+	
+	<!-- Fixes this one to rebuild -->
+	<replace sel="//jobs/job[@id='huttcartel_energycell_trader_l_critical']/modifiers">
+		<modifiers rebuild="true" commandeerable="true" />
+	</replace>
+	
+	<!-- No escorts for Hutt Cartel economic ships -->
+	<remove sel="//jobs/job[@id='huttcartel_rhydonium_miner_l_mineral']/subordinates" />
+	
+	<!-- 10 -> 1 -->
+	<replace sel="//jobs/job[@id='huttcartel_free_miner_s_mineral']/quota">
+		<quota galaxy="1" cluster="1" />
+	</replace>
+	
+	<!-- MANDALORIAN DEATH WATCH -->
+    <!-- Initial Sectors: 6 -->
+    <!-- Civilian Faction: No dedicated -->
+	<!-- Note: These guys don't really a fleet overhaul, the layout is relative fine, but in the future they might get some tuning -->
+	
+	<!-- XL Venator patrol, gets additional M escorts -->
+	<replace sel="//jobs/job[@id='mandodw_venator_patrol_xl']/subordinates">
+		<subordinates>
+			<subordinate job="mandodw_heavyescort_escort_light_l" />
+			<subordinate job="mandodw_heavyescort_escort_light_l" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_ywing" />
+			<subordinate job="mandodw_fighter_ywing" />
+			<subordinate job="mandodw_fighter_ywing" />
+			<subordinate job="mandodw_fighter_ywing" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL Kandosii patrol, gets additional M escorts -->
+	<replace sel="//jobs/job[@id='mandodw_kandosii_patrol_xl']/subordinates">
+		<subordinates>
+			<subordinate job="mandodw_heavyescort_escort_light_l" />
+			<subordinate job="mandodw_heavyescort_escort_light_l" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_interceptors" />
+			<subordinate job="mandodw_fighter_interceptors" />
+			<subordinate job="mandodw_fighter_ywing" />
+			<subordinate job="mandodw_fighter_ywing" />
+			<subordinate job="mandodw_fighter_ywing" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL Keldabe late game patrol, gets reasonable escorts -->
+	<replace sel="//jobs/job[@id='mandodw_kedlabe_patrol_xl_additional']/subordinates">
+		<subordinates>
+			<subordinate job="mandodw_heavyescort_escort_l" />
+			<subordinate job="mandodw_heavyescort_escort_l" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL Keldabe patrol, gets reasonable escorts -->
+	<replace sel="//jobs/job[@id='mandodw_kedlabe_patrol_xl']/subordinates">
+		<subordinates>
+			<subordinate job="mandodw_heavyescort_escort_l" />
+			<subordinate job="mandodw_heavyescort_escort_l" />
+			<subordinate job="mandodw_heavyescort_escort_l" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL Keldabe expedition, gets reasonable escorts -->
+	<replace sel="//jobs/job[@id='mandodw_kedlabe_patrol_xl_expedition']/subordinates">
+		<subordinates>
+			<subordinate job="mandodw_heavyescort_escort_l" />
+			<subordinate job="mandodw_heavyescort_escort_l" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Teroch patrol, gets reasonable escorts -->
+	<replace sel="//jobs/job[@id='mandodw_teroch_patrol_l_mission']/subordinates">
+		<subordinates>
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Teroch patrol, gets reasonable escorts -->
+	<replace sel="//jobs/job[@id='mandodw_teroch_patrol_l']/subordinates">
+		<subordinates>
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+        </subordinates>
+	</replace>
+	
+	<!-- L light escorts, they get 2 extra S escorts -->
+	<replace sel="//jobs/job[@id='mandodw_heavyescort_escort_light_l']/subordinates">
+		<subordinates>
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+			<subordinate job="mandodw_fighter_mixed_s" />
+        </subordinates>
+	</replace>
+	
+	<!-- M patrol, it gets an extra M escort -->
+	<replace sel="//jobs/job[@id='mandodw_corvette_patrol_m_sector']/subordinates">
+		<subordinates>
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+			<subordinate job="mandodw_escort_corvette_m_noescrot" />
+        </subordinates>
+	</replace>
+	
+	<!-- Add these jobs to be picked for invasion purposes -->
+	<replace sel="//jobs/job[@id='mandodw_teroch_patrol_l_mission']/category/@tags">[factionlogic, military, teroch]</replace>
+	
+	<!-- Fixes this one to rebuild -->
+	<replace sel="//jobs/job[@id='mandodw_energycell_trader_l_critical']/modifiers">
+		<modifiers rebuild="true" commandeerable="true" />
+	</replace>
+	
+	<!-- No escorts for Mandalorian Death Watch economic ships -->
+	<remove sel="//jobs/job[@id='mandodw_rhydonium_miner_l_mineral']/subordinates" />
+
+	<!-- 7/6 -> 2/1 -->
+	<replace sel="//jobs/job[@id='mandodw_construction_vessel_l']/quota">
+		<quota galaxy="2" sector="1" />
+	</replace>
+	<replace sel="//jobs/job[@id='mandodw_construction_vessel_l_focused']/quota">
+		<quota galaxy="1" sector="1" />
+	</replace>
+
+	<!-- KUAT SHIPYARDS -->
+	<!-- Minor Faction -->
+	
+	<!-- L VSD-II patrol, they get less S escorts, since these guys are really just for show -->
+	<replace sel="//jobs/job[@id='kuat_vsd2_patrol_l_mission']/subordinates">
+		<subordinates>
+			<subordinate job="kuat_tief_trio_leader" />
+			<subordinate job="kuat_tief_trio_leader" />
+			<subordinate job="kuat_tiei_trio_leader" />
+			<subordinate job="kuat_tiei_trio_leader" />
+			<subordinate job="kuat_tieb_trio_leader" />
+			<subordinate job="kuat_tieb_trio_leader" />
+        </subordinates>
+	</replace>
+	
+	<!-- Add these jobs to used for expeditions and invasions -->
+	<replace sel="//jobs/job[@id='kuat_vsd2_patrol_l_mission']/category/@tags">[factionlogic, military, expedition, vsd2]</replace>
+
+	<!-- KAMINO -->
+    <!-- Initial Sectors: 1 -->
+	<!-- Minor Faction -->
+	
+	<!-- XL Venator patrol, gets additional M escorts -->
+	<replace sel="//jobs/job[@id='kamino_venator_patrol']/subordinates">
+		<subordinates>
+			<subordinate job="kamino_acclamator2_escort_l" />
+			<subordinate job="kamino_acclamator2_escort_l" />
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_interceptros_s_escort" />
+			<subordinate job="kamino_interceptros_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- Originally a duo of XL Venators, gets additional M/L escorts instead -->
+	<replace sel="//jobs/job[@id='kamino_venator_dual_patrol']/subordinates">
+		<subordinates>
+			<subordinate job="kamino_proclamator_escort_l" />
+			<subordinate job="kamino_proclamator_escort_l" />
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_interceptros_s_escort" />
+			<subordinate job="kamino_interceptros_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- XL Venator shipyard defense group, no Carrier L escorts, but gets M, and non-Carrier L escorts instead -->
+	<replace sel="//jobs/job[@id='kamino_venator_patrol_shipyard']/subordinates">
+		<subordinates>
+			<subordinate job="kamino_arquitens_escort_l" />
+			<subordinate job="kamino_arquitens_escort_l" />
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_ywing_s_escort" />
+			<subordinate job="kamino_interceptros_s_escort" />
+			<subordinate job="kamino_interceptros_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Acclamator patrol, gets an extra M escort, in exchange for 3 S escorts, since its max S capacity is 7 (1 + 6) -->
+	<replace sel="//jobs/job[@id='kamino_acclamator2_patrol_l']/subordinates">
+		<subordinates>
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Proclamator patrol, gets 2 M, 3 extra S ships for consistency with its escort variant -->
+	<replace sel="//jobs/job[@id='kamino_proclamator_patrol_l']/subordinates">
+		<subordinates>
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_arc170_s_escort" />
+			<subordinate job="kamino_fightermixed_s_escort" />
+			<subordinate job="kamino_fightermixed_s_escort" />
+			<subordinate job="kamino_fightermixed_s_escort" />
+			<subordinate job="kamino_fightermixed_s_escort" />
+        </subordinates>
+	</replace>
+	
+	<!-- L Arquitens patrol, with 2 M escorts instead of duo Arquitenses -->
+	<replace sel="//jobs/job[@id='kamino_arquitens_patrol_l']/subordinates">
+		<subordinates>
+			<subordinate job="kamino_corvette_escort_m" />
+			<subordinate job="kamino_corvette_escort_m" />
+        </subordinates>
+	</replace>
+	
+	<!-- Add these jobs to used for expeditions and invasions -->
+	<replace sel="//jobs/job[@id='kamino_venator_patrol']/category/@tags">[factionlogic, military, expedition, venator]</replace>
+	<replace sel="//jobs/job[@id='kamino_venator_dual_patrol']/category/@tags">[factionlogic, military, expedition, venator]</replace>
+	<replace sel="//jobs/job[@id='kamino_venator_patrol_shipyard']/category/@tags">[factionlogic, military, expedition, venator]</replace>
+	<replace sel="//jobs/job[@id='kamino_proclamator_patrol_l']/category/@tags">[factionlogic, military, expedition, proclamator]</replace>
+	<replace sel="//jobs/job[@id='kamino_acclamator2_patrol_l']/category/@tags">[factionlogic, military, expedition, acclamator2]</replace>
+	<replace sel="//jobs/job[@id='kamino_arquitens_patrol_l']/category/@tags">[factionlogic, military, expedition, arquitens]</replace>
+	
+	<!-- 40 -> 2 -->
+	<replace sel="//jobs/job[@id='kamino_equipment_trader_s']/quota">
+		<quota galaxy="2" cluster="2" />
+	</replace>
+	
+	<!-- No escorts for Kamino economic ships -->
+	<remove sel="//jobs/job[@id='kamino_rhydonium_miner_l_mineral']/subordinates" />
+	
+	<!-- 6 -> 2 -->
+	<replace sel="//jobs/job[@id='kamino_construction_vessel_l']/quota">
+		<quota galaxy="2" sector="1" />
+	</replace>
+	
+	<!-- NABOO ROYAL AUTHORITY -->
+    <!-- Initial Sectors: 1 -->
+	<!-- Minor Faction -->
+	
+	<!-- No escorts for Naboo economic ships -->
+	<remove sel="//jobs/job[@id='naboo_universal_trader_m']/subordinates" />
+	
+	<!-- MINING GUILD -->
+	<!-- Minor Faction -->
+	
+	<!-- Adjust Mining Guild layout to favour them roaming the galaxy rather than sectors their stations are in -->
+	<!-- 15/20 -> 4/6 -->
+	<replace sel="//jobs/job[@id='mng_free_miner_m_mineral']/quota">
+		<quota galaxy="4" maxgalaxy="6" cluster="2" />
+	</replace>
+	<!-- 5/5 -> 10/15 -->
+	<replace sel="//jobs/job[@id='mng_free_miner_m_mineral_neut']/quota">
+		<quota galaxy="10" maxgalaxy="15" cluster="1" />
+	</replace>
+	
+	<!-- No escorts for Mining Guild economic ships -->
+	<remove sel="//jobs/job[@id='mng_free_miner_m_mineral']/subordinates" />
+	<remove sel="//jobs/job[@id='mng_free_miner_m_mineral_neut']/subordinates" />
+</diff>
