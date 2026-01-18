@@ -12,10 +12,67 @@
 		</group>
 	</replace>
 	
+	<replace sel="//groups/group[@name='galempire_trader_container_l']">
+		<group name="galempire_trader_container_l">
+			<select macro="eta_class_supply_barge_macro" weight="30"/>
+			<select macro="acclamator1_macro" weight="70" />
+		</group>
+	</replace>
+	
+	<!-- Add the TIE Fighter Vanguard to the IMP TIE Fighter list, small chance -->
+	<replace sel="//groups/group[@name='galempire_fighter_tief']">
+		<group name="galempire_fighter_tief">
+			<select macro="tie_fighter_macro" weight="80" />
+			<select macro="tie_brute_macro" weight="40" />
+			<select macro="tie_fighter_van_macro" weight="20" />
+		</group>
+	</replace>
+	
+	<!-- Add the TIE Interceptor Royal Guard to the IMP TIE Interceptor list, small chance -->
+	<replace sel="//groups/group[@name='galempire_fighter_tiei']">
+		<group name="galempire_fighter_tiei">
+			<select macro="tie_interceptor_macro" weight="80"/>
+			<select macro="tie_interceptor_rg_macro" weight="20"/>
+		</group>
+	</replace>
+	
+	<!-- Add the TIE Reaper to the IMP TIE Bomber list, small chance -->
+	<replace sel="//groups/group[@name='galempire_fighter_tieb']">
+		<group name="galempire_fighter_tieb">
+			<select macro="tie_bomber_macro" weight="80"/>
+			<select macro="tie_reaper_macro" weight="20"/>
+		</group>
+	</replace>
+	
+	<!-- Add the TIE Scimitar to the random IMP TIE list -->
+	<replace sel="//groups/group[@name='galempire_fighter_tier']">
+		<group name="galempire_fighter_tier">
+			<select macro="tie_defender_macro" weight="30" />
+			<select macro="tie_advanced_macro" weight="30" />
+			<select macro="tie_striker_macro" weight="40" />
+			<select macro="tie_scimitar_macro" weight="20"/>
+		</group>
+	</replace>
+	
 	<replace sel="//groups/group[@name='ascendancy_trader_container_m']">
 		<group name="ascendancy_trader_container_m">
 			<select macro="impgozanti_at_macro" weight="95" />
 			<select macro="lambda_shuttle_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<replace sel="//groups/group[@name='ascendancy_trader_container_l']">
+		<group name="ascendancy_trader_container_l">
+			<select macro="eta_class_supply_barge_macro" weight="30"/>
+			<select macro="acclamator1_macro" weight="70" />
+		</group>
+	</replace>
+	
+	<!-- Add the TIE Fighter Vanguard to the ASC TIE Fighter list, medium chance -->
+	<replace sel="//groups/group[@name='ascendancy_fighter_tief']">
+		<group name="ascendancy_fighter_tief">
+			<select macro="tie_fighter_macro" weight="60" />
+			<select macro="tie_fighter_van_macro" weight="40" />
 		</group>
 	</replace>
 	
@@ -38,6 +95,51 @@
 		<group name="newrepublic_miner_solid_m">
 			<select macro="rebel_tanker_solid_macro" weight="95" />
 			<select macro="gozanti_civ_miner_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<!-- Add the R41, and Rebel Alliance era (BTL-A4) Y-Wing for random NRL fighters, so the Rendili Wharf actually builds something -->
+	<replace sel="//groups/group[@name='newrepublic_fighter_mixed_s']">
+		<group name="newrepublic_fighter_mixed_s">
+			<select macro="ewing_macro" weight="15" />
+			<select macro="t65b_xwing_01_macro" weight="15" />
+			<select macro="r41_macro" weight="15" />
+			<select macro="ywing_btlnr2_macro" weight="10" />
+			<select macro="ywing_btla4_macro" weight="10" />
+			<select macro="rz1awing_macro" weight="10" />
+			<select macro="bwing_macro" weight="10" />
+			<select macro="t70_xwing_blue_macro" weight="5" />
+			<select macro="t65xj3_xwing_macro" weight="5" />
+		</group>
+	</replace>
+	
+	<!-- Add CR90 variants to NRL mixed corvettes -->
+	<replace sel="//groups/group[@name='newrepublic_corvette_m']">
+		<group name="newrepublic_corvette_m">
+			<select macro="cr90_01a_macro" weight="15" />
+			<select macro="cr90_01as_macro" weight="20" />
+			<select macro="dorean_corvette_macro" weight="20" />
+			<select macro="hammerhead_corvette_macro" weight="25" />
+			<select macro="gs80_macro" weight="15" />
+		</group>
+	</replace>
+	
+	<!-- Add Harbor Auxiliary to NRL in case XL fabs are at capacity, so Rendili shipyards can build it for them -->
+	<replace sel="//groups/group[@name='newrepublic_resupplier']">
+		<group name="newrepublic_resupplier">
+			<select macro="mc80crain_macro" weight="85" />
+			<select macro="ship_gen_resupplier_01_macro" weight="15" />
+		</group>
+	</replace>
+	
+	<!-- Add CR90-AS variant, and Dornean to Rebel mixed corvettes -->
+	<replace sel="//groups/group[@name='rebelalliance_cr90_m']">
+		<group name="rebelalliance_cr90_m">
+			<select macro="cr90_01a_macro" weight="45" />
+			<select macro="hammerhead_corvette_macro" weight="40" />
+			<select macro="cr90_01as_macro" weight="30" />
+			<select macro="dorean_corvette_macro" weight="25" />
+			<select macro="gr75b_macro" weight="20" />
 		</group>
 	</replace>
 	
@@ -70,10 +172,21 @@
 		</group>
 	</replace>
 	
+	<!-- The Gozanti has better cargo, but both of these are solid miners -->
 	<replace sel="//groups/group[@name='corporate_miner_solid_m']">
 		<group name="corporate_miner_solid_m">
-			<select macro="actioniv_solid_macro" weight="95" />
-			<select macro="gozanti_civ_miner_macro" weight="5" />
+			<select macro="actioniv_solid_macro" weight="40" />
+			<select macro="gozanti_civ_miner_macro" weight="80" />
+		</group>
+	</replace>
+	
+	<!-- Re-add the Dreadnought as a heavy escort for the MDW to free up L Fabs -->
+	<replace sel="//groups/group[@name='mandodw_heavyescort_l']">
+		<group name="mandodw_heavyescort_l">
+			<select macro="praetorian_02_macro" weight="30" />
+			<select macro="teroch_macro" weight="20" />
+			<select macro="mando_assault_ship_macro" weight="40"/>
+			<select macro="dreadnaught_alliance_macro" weight="50"/>
 		</group>
 	</replace>
 	
@@ -185,38 +298,38 @@
 	
 	<replace sel="//groups/group[@name='civilian_miner_solid_m']">
 		<group name="civilian_miner_solid_m">
-			<select macro="actioniv_solid_macro" weight="80" />
-			<select macro="gozanti_civ_miner_macro" weight="5" />
+			<select macro="actioniv_solid_macro" weight="25" />
+			<select macro="gozanti_civ_miner_macro" weight="85" />
 			<select macro="rebel_tanker_solid_macro" weight="15" />
 		</group>
 	</replace>
 	
 	<replace sel="//groups/group[@name='mng_miner']">
 		<group name="mng_miner">
-			<select macro="actioniv_solid_macro" weight="60" />
-			<select macro="gozanti_civ_miner_macro" weight="20" />
-			<select macro="rebel_tanker_solid_macro" weight="20" />
+			<select macro="actioniv_solid_macro" weight="10" />
+			<select macro="gozanti_civ_miner_macro" weight="90" />
+			<select macro="rebel_tanker_solid_macro" weight="10" />
 		</group>
 	</replace>
 	
 	<replace sel="//groups/group[@name='sienar_miner_solid_m']">
 		<group name="sienar_miner_solid_m">
-			<select macro="actioniv_solid_macro" weight="75" />
-			<select macro="berea_shuttle_macro" weight="25" />
+			<select macro="actioniv_solid_macro" weight="85" />
+			<select macro="berea_shuttle_macro" weight="15" />
 		</group>
 	</replace>
 	
 	<replace sel="//groups/group[@name='sienar_miner_liquid_m']">
 		<group name="sienar_miner_liquid_m">
-			<select macro="actioniv_gas_macro" weight="75" />
-			<select macro="berea_shuttle_gas_macro" weight="25" />
+			<select macro="actioniv_gas_macro" weight="90" />
+			<select macro="berea_shuttle_gas_macro" weight="10" />
 		</group>
 	</replace>
 	
 	<replace sel="//groups/group[@name='bankingclan_trader_container_l']">
 		<group name="bankingclan_trader_container_l">
-			<select macro="neutronstar_trade_macro" weight="10" />
-			<select macro="acclamator1_macro" weight="90" />
+			<select macro="eta_class_supply_barge_macro" weight="30" />
+			<select macro="acclamator1_macro" weight="70" />
 		</group>
 	</replace>
 	
@@ -230,8 +343,9 @@
 	
 	<replace sel="//groups/group[@name='tradefederation_trader_outerrim_m']">
 		<group name="tradefederation_trader_outerrim_m">
-			<select macro="actioniv_macro" weight="85"/>
-			<select macro="bff_01_macro" weight="15"/>
+			<select macro="cis_repair_macro" weight="95" />
+			<select macro="actioniv_macro" weight="5"/>
+			<select macro="bff_01_macro" weight="5"/>
 		</group>
 	</replace>
 	
@@ -255,8 +369,8 @@
 	
 	<replace sel="//groups/group[@name='valarian_trader_container_m']">
 		<group name="valarian_trader_container_m">
-			<select macro="css1_macro" weight="70" />
-			<select macro="actioniv_macro" weight="30" />
+			<select macro="css1_macro" weight="75" />
+			<select macro="actioniv_macro" weight="25" />
 		</group>
 	</replace>
 </diff>

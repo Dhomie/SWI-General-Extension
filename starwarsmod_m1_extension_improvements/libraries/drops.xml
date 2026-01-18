@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+  <!-- TUTORIAL -->
+<diff> 
+ 
+  <replace sel="//droplists/droplist[@id='ship_large_military']">
+  <droplist id="ship_large_military">
+    <drop macro="sm_gen_wares_common_01_macro" chance="40"  min="3" max="8">
+      <collectable>
+        <wares selection="random">
+          <select weight="19">
+            <ware ware="inv_majaglit" min="1" max="30"/>
+          </select>
+          <!-- 19.6% -->
+          <select weight="19">
+            <ware ware="inv_interfaceunit" min="1" max="30"/>
+          </select>
+          <!-- 19.6% -->
+          <select weight="5">
+            <ware ware="inv_programmablefieldarray" min="1" max="1"/>
+          </select>
+          <!-- 19.6% -->
+          <select weight="11">
+            <ware ware="inv_spaceflyeggs" min="1" max="10"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="11">
+            <ware ware="inv_securecontainer" min="1" max="10"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="7">
+            <ware ware="inv_securitybypasssystem" min="1" max="2"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="7">
+            <ware ware="inv_agidevice_01" min="1" max="2"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="7">
+            <ware ware="inv_securityslicer" min="1" max="2"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="7">
+            <ware ware="inv_agidevice_03" min="1" max="2"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="7">
+            <ware ware="inv_advancedtargetingmodule" min="3" max="6"/>
+          </select>
+          <select weight="11">
+            <ware ware="inv_micromotor" min="4" max="8"/>
+          </select>
+          <select weight="11">
+            <ware ware="inv_hydraulicpump" min="4" max="9"/>
+          </select>
+          <select weight="11">
+            <ware ware="inv_modulartrigger" min="4" max="13"/>
+          </select>
+          <select weight="11">
+            <ware ware="inv_microgimble" min="5" max="13"/>
+          </select>
+        </wares>
+      </collectable>
+    </drop>
+    <drop macro="sm_gen_powerup_wares_01_macro" chance="40">
+      <collectable>
+        <wares selection="random">
+          <select weight="37">
+            <ware ware="inv_seminar_piloting_0" min="1" max="3"/>
+          </select>
+          <select weight="20">
+            <ware ware="inv_seminar_piloting_1" amount="1"/>
+          </select>
+          <select weight="10">
+            <ware ware="inv_seminar_piloting_2" amount="1"/>
+          </select>
+          <select weight="5">
+            <ware ware="inv_seminar_piloting_3" amount="1"/>
+          </select>
+          <select weight="29">
+            <ware ware="inv_seminar_management_0" min="1" max="3"/>
+          </select>
+          <select weight="10">
+            <ware ware="inv_seminar_management_1" amount="1"/>
+          </select>
+          <select weight="4">
+            <ware ware="inv_seminar_management_2" amount="1"/>
+          </select>
+          <select weight="3">
+            <ware ware="inv_seminar_management_3" amount="1"/>
+          </select>
+        </wares>
+        <money min="15000" max="22000"/>
+      </collectable>
+    </drop>
+    <drop macro="sm_gen_wpsmod_common_01_macro" chance="50">
+      <collectable>
+        <wares selection="random">
+          <select>
+            <ware ware="modpart_extendedfuelcontainer" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_highenergycatalyst" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_nividiumcrystallite" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_nividiumoxide" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_tuningsoftware" min="1" max="2" />
+          </select>
+        </wares>
+      </collectable>
+    </drop>
+    <drop macro="sm_gen_wpsmod_rare_01_macro" chance="40">
+      <collectable>
+        <wares selection="random">
+          <select>
+            <ware ware="modpart_enginefuelinjector_t1" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_shieldgeneratorcoil_t1" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_shipnanoweave_t1" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_weaponchamber_t1" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_enginefuelinjector_t2" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_shieldgeneratorcoil_t2" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_shipnanoweave_t2" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_weaponchamber_t2" amount="1" />
+          </select>
+        </wares>
+      </collectable>
+    </drop>
+  </droplist>
+</replace>
+
+<replace sel="//droplists/droplist[@id='ship_small_military']">
+  <droplist id="ship_small_military">
+    <drop macro="sm_gen_wares_common_01_macro" chance="70">
+      <collectable>
+        <wares selection="random">
+          <select weight="19">
+            <ware ware="inv_majaglit" min="1" max="30"/>
+          </select>
+          <!-- 19.6% -->
+          <select weight="19">
+            <ware ware="inv_interfaceunit" min="1" max="30"/>
+          </select>
+          <!-- 19.6% -->
+          <select weight="10">
+            <ware ware="inv_programmablefieldarray" min="1" max="1"/>
+          </select>
+          <select weight="5">
+            <ware ware="inv_damagedsingularityengine" min="1" max="1"/>
+          </select>
+          <!-- 19.6% -->
+          <select weight="11">
+            <ware ware="inv_spaceflyeggs" min="1" max="10"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="11">
+            <ware ware="inv_securecontainer" min="1" max="10"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="11">
+            <ware ware="inv_remotedetonator" min="1" max="2"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="7">
+            <ware ware="inv_advancedtargetingmodule" min="1" max="3"/>
+          </select>
+          <select weight="11">
+            <ware ware="inv_micromotor" min="1" max="3"/>
+          </select>
+          <select weight="11">
+            <ware ware="inv_hydraulicpump" min="1" max="3"/>
+          </select>
+          <select weight="11">
+            <ware ware="inv_modulartrigger" min="1" max="3"/>
+          </select>
+          <select weight="11">
+            <ware ware="inv_microgimble" min="1" max="3"/>
+          </select>
+        </wares>
+      </collectable>
+    </drop>
+    <drop macro="sm_gen_powerup_wares_01_macro" chance="30">
+      <collectable>
+        <wares selection="random">
+          <select weight="37">
+            <ware ware="inv_seminar_piloting_0" min="1" max="3"/>
+          </select>
+          <select weight="11">
+            <ware ware="inv_seminar_piloting_1" max="1"/>
+          </select>
+          <select weight="5">
+            <ware ware="inv_seminar_piloting_2" max="1"/>
+          </select>
+          <select weight="29">
+            <ware ware="inv_seminar_management_0" min="1" max="3"/>
+          </select>
+          <select weight="7">
+            <ware ware="inv_seminar_management_1" max="1"/>
+          </select>
+          <select weight="5">
+            <ware ware="inv_seminar_management_2" max="1"/>
+          </select>
+        </wares>
+        <money min="500" max="5000"/>
+      </collectable>
+    </drop>
+    <drop macro="sm_gen_wpsmod_common_01_macro" chance="35">
+      <collectable>
+        <wares selection="random">
+          <select>
+            <ware ware="modpart_extendedfuelcontainer" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_highenergycatalyst" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_nividiumcrystallite" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_nividiumoxide" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_tuningsoftware" min="1" max="2" />
+          </select>
+        </wares>
+      </collectable>
+    </drop>
+    <drop macro="sm_gen_wpsmod_rare_01_macro" chance="20">
+      <collectable>
+        <wares selection="random">
+          <select>
+            <ware ware="modpart_enginefuelinjector_t2" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_shieldgeneratorcoil_t2" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_shipnanoweave_t2" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_weaponchamber_t2" amount="1" />
+          </select>
+        </wares>
+      </collectable>
+    </drop>
+    <drop macro="sm_gen_ammo_01_macro" chance="10">
+      <collectable>
+        <ammo selection="random">
+          <!-- dumbfire, guided, swarm, torpedo -->
+          <select macro="missile_ion_medium_macro" weight="2" min="2" max="4"/>
+          <select macro="missile_proton_medium_macro" weight="5" min="1" max="3"/>
+          <select macro="missile_ion_light_macro" weight="3" min="1" max="3"/>
+          <select macro="missile_proton_light_macro" weight="7" min="2" max="4"/>
+          <select macro="missile_concussion_medium_macro" weight="11" min="2" max="4"/>
+          <select macro="missile_concussion_light_macro" weight="13" min="1" max="3"/>
+        </ammo>
+      </collectable>
+    </drop>
+  </droplist>
+
+</replace>
+
+<replace sel="//droplists/droplist[@id='ship_large_civilian']">
+  <droplist id="ship_large_civilian">
+    <drop macro="sm_gen_wares_common_01_macro" chance="70"  min="2" max="8">
+      <collectable>
+        <wares selection="random">
+          <select weight="19">
+            <ware ware="inv_majaglit" min="1" max="30"/>
+          </select>
+          <!-- 19.6% -->
+          <select weight="19">
+            <ware ware="inv_interfaceunit" min="1" max="30"/>
+          </select>
+          <!-- 19.6% -->
+          <select weight="11">
+            <ware ware="inv_spaceflyeggs" min="1" max="10"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="11">
+            <ware ware="inv_securecontainer" min="1" max="10"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="6">
+            <ware ware="modpart_extendedfuelcontainer" min="1" max="2" />
+          </select>
+          <select weight="6">
+            <ware ware="modpart_highenergycatalyst" min="1" max="2" />
+          </select>
+          <select weight="6">
+            <ware ware="modpart_nividiumcrystallite" min="1" max="2" />
+          </select>
+          <select weight="6">
+            <ware ware="modpart_nividiumoxide" min="1" max="2" />
+          </select>
+          <select weight="6">
+            <ware ware="modpart_tuningsoftware" min="1" max="2" />
+          </select>
+          <select weight="1">
+            <ware ware="inv_hallucinogenics" min="1" max="2"/>
+          </select>
+          <select weight="6">
+            <ware ware="inv_needle" min="4" max="8"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="6">
+            <ware ware="inv_bandages" min="4" max="8"/>
+          </select>
+          <!-- 11.3% -->
+          <select weight="6">
+            <ware ware="inv_sedative" min="4" max="8"/>
+          </select>
+          <!-- 11.3% -->
+        </wares>
+      </collectable>
+    </drop>
+    <drop macro="sm_gen_powerup_wares_01_macro" chance="40">
+      <collectable>
+        <wares selection="random">
+          <select weight="37">
+            <ware ware="inv_seminar_management_0" min="1" max="3"/>
+          </select>
+          <select weight="17">
+            <ware ware="inv_seminar_management_1" amount="1"/>
+          </select>
+          <select weight="7">
+            <ware ware="inv_seminar_management_2" amount="1"/>
+          </select>
+          <select weight="5">
+            <ware ware="inv_seminar_management_3" amount="1"/>
+          </select>
+          <select weight="29">
+            <ware ware="inv_seminar_piloting_0" min="1" max="3"/>
+          </select>
+          <select weight="13">
+            <ware ware="inv_seminar_piloting_1" amount="1"/>
+          </select>
+          <select weight="5">
+            <ware ware="inv_seminar_piloting_2" amount="1"/>
+          </select>
+          <select weight="1">
+            <ware ware="inv_seminar_piloting_3" amount="1"/>
+          </select>
+        </wares>
+        <money min="25000" max="32000"/>
+      </collectable>
+    </drop>
+	<drop macro="sm_gen_wpsmod_common_01_macro" chance="30">
+      <collectable>
+        <wares selection="random">
+          <select>
+            <ware ware="modpart_extendedfuelcontainer" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_highenergycatalyst" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_nividiumcrystallite" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_nividiumoxide" min="1" max="2" />
+          </select>
+          <select>
+            <ware ware="modpart_tuningsoftware" min="1" max="2" />
+          </select>
+        </wares>
+      </collectable>
+    </drop>
+    <drop macro="sm_gen_wpsmod_rare_01_macro" chance="15">
+      <collectable>
+        <wares selection="random">
+          <select>
+            <ware ware="modpart_enginefuelinjector_t2" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_shieldgeneratorcoil_t2" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_shipnanoweave_t2" amount="1" />
+          </select>
+          <select>
+            <ware ware="modpart_weaponchamber_t2" amount="1" />
+          </select>
+        </wares>
+      </collectable>
+    </drop>
+  </droplist>
+</replace>
+
+</diff>

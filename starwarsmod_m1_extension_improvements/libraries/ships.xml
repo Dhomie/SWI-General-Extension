@@ -34,12 +34,13 @@
 	<add sel="/ships/ship[@id='galempire_vindicator_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='galempire_enforcer_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='galempire_light_cruiser_l']">
@@ -60,6 +61,7 @@
 	<add sel="/ships/ship[@id='galempire_vsd2_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='galempire_lancerfrigate_l']">
@@ -78,6 +80,7 @@
 	<add sel="/ships/ship[@id='ascendancy_resupplier_xl']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk3" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='ascendancy_bellator_xxl']">
@@ -101,25 +104,25 @@
 	<add sel="/ships/ship[@id='ascendancy_heavyescort_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='ascendancy_vindicator_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='ascendancy_enforcer_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='ascendancy_546_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='ascendancy_light_cruiser_l']">
@@ -148,75 +151,101 @@
 	</add>
 	<add sel="/ships/ship[@id='ascendancy_fighter_tiea']">
 		<equipmentmods>
+			<shield ware="mod_shield_capacity_02_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='ascendancy_fighter_tied']">
 		<equipmentmods>
+			<shield ware="mod_shield_capacity_02_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
 		</equipmentmods>
 	</add>
 	
 	<!-- New Republic -->
-	<!-- Their capital ships get the MonCal mod, their fighters get some blue/purple mods -->
+	<!-- Most capitals get Bothan hull, Rendili engine, MonCal shield mods, their fighters get some blue/purple mods -->
 	<add sel="/ships/ship[@id='newrepublic_homeone_xl']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_capacity_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='newrepublic_mc85_xl']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_resupplier_xl']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
-	<!-- Refurbished ISD-I gets both MonCal and Kuati mods -->
+	<!-- Refurbished ISD-I gets Kuati hull mod -->
 	<add sel="/ships/ship[@id='newrepublic_isd_xl']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_mc80l_xl']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_mc80r_xl']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_mc80carrier_xl']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_nebulon_l']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_quasar_l']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_pelta_l']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add><add sel="/ships/ship[@id='newrepublic_drednought_l']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_mc40_l']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_heavyescort_l']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<shield ware="mod_shield_capacity_01_mk2" />
 		</equipmentmods>
 	</add>
@@ -224,21 +253,25 @@
 	<!-- M and S ships -->
 	<add sel="/ships/ship[@id='newrepublic_cr90_m']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<engine ware="mod_engine_travelthrust_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_corvette_m']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<engine ware="mod_engine_travelthrust_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_fighter_xwing_s']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<engine ware="mod_engine_boostthrust_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='newrepublic_fighter_awing_s']">
 		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
 			<engine ware="mod_engine_boostthrust_01_mk2" />
 		</equipmentmods>
 	</add>
@@ -334,7 +367,7 @@
 		<equipmentmods>
 			<ship ware="mod_ship_drag_01_mk2" />
 			<engine ware="mod_engine_forwardthrust_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk3" />
 		</equipmentmods>
 	</add>
 	<!-- Venator gets to be a part of several trade deals, meaning it gets MonCal shields, Kuati hull improvements, and StarViper engine upgrades -->
@@ -343,7 +376,7 @@
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk2" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
-			<shield ware="mod_shield_capacity_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk3" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='corporate_nebulon_l']">
@@ -432,25 +465,31 @@
 	<add sel="/ships/ship[@id='commerceguild_resupplier_xl']">
 		<equipmentmods>
 			<ship ware="mod_ship_drag_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk2" />
+			<shield ware="mod_shield_capacity_02_mk3" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='commerceguild_subjugator_xl']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<shield ware="mod_shield_capacity_02_mk3" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='commerceguild_lucrehulk_b_xl']">
 		<equipmentmods>
 			<ship ware="mod_ship_drag_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk2" />
+			<shield ware="mod_shield_capacity_02_mk3" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='commerceguild_providence_xl']">
 		<equipmentmods>
 			<ship ware="mod_ship_drag_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk2" />
+			<shield ware="mod_shield_capacity_02_mk3" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='commerceguild_allocator_xl']">
 		<equipmentmods>
 			<ship ware="mod_ship_drag_01_mk2" />
-			<shield ware="mod_shield_capacity_01_mk2" />
+			<shield ware="mod_shield_capacity_02_mk3" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='commerceguild_munificent_xl']">
@@ -514,11 +553,122 @@
 	</add>
 	
 	<!-- Hutts -->
-	<!-- TODO -->
+	<!-- Mix of blue mods -->
+	<add sel="/ships/ship[@id='huttcartel_venator_xl']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='huttcartel_neutronstar_l']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='huttcartel_drednought_l']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='huttcartel_heavyescort_l']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='huttcartel_corvette_m']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='huttcartel_fighter_ywing_s']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='huttcartel_fighter_mixed_s']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='huttcartel_fighter_heavy_s']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='huttcartel_fighter_interceptors_s']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
+		</equipmentmods>
+	</add>
 	
-	
-	
-	
+	<!-- Hapans -->
+	<!-- Mix of blue mods -->
+	<add sel="/ships/ship[@id='hapes_dragon_l']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_capacity_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='hapes_nebula_l']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_capacity_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='hapes_heavyescort_l']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_capacity_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='hapes_corvette_m']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_capacity_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='hapes_fighter_xwing_s']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_capacity_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='hapes_fighter_myitil_s']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_capacity_01_mk2" />
+		</equipmentmods>
+	</add>
+	<add sel="/ships/ship[@id='hapes_fighter_mixed_s']">
+		<equipmentmods>
+			<ship ware="mod_ship_drag_01_mk2" />
+			<engine ware="mod_engine_forwardthrust_01_mk2" />
+			<shield ware="mod_shield_capacity_01_mk2" />
+		</equipmentmods>
+	</add>
 	
 	<!-- Mandalorians -->
 	<!-- B E S K A R TIME; these guys get that, along with some engine mods -->
@@ -526,90 +676,105 @@
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_keldabe_xl']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_kandosii_xl']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_praetorian_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
-	<add sel="/ships/ship[@id='mandodw_drednought_l']">
+	<add sel="/ships/ship[@id='mandodw_mando_assault_ship_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_teroch_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_heavyescort_l']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_corvette_m']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_lancer_m']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_gauntlet_m']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_fighter_ywing_s']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_fighter_mixed_s']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_fighter_interceptors_s']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_fighter_heavy']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	<add sel="/ships/ship[@id='mandodw_resupplier_xl']">
 		<equipmentmods>
 			<ship ware="mod_ship_mass_01_mk3" />
 			<engine ware="mod_engine_rotationthrust_01_mk3" />
+			<shield ware="mod_shield_rechargerate_01_mk2" />
 		</equipmentmods>
 	</add>
 	

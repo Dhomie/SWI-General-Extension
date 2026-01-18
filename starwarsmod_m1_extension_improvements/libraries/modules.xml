@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<diff>
+	<!-- Set the races of the processing module, it's missing from base SWI, despite X4 defining it -->
+	<replace sel="/modules/module[@id='processing_gen']/category/@race">[argon, imperial]</replace>
+	
+	<!-- Set the races of the Hutt module setup, it's missing from base SWI -->
+	<replace sel="/modules/module[@id='processing_hutt_scrap']/category/@race">[argon, imperial]</replace>
+	
+	<!-- TODO: Remove this, non-functioning scrap factories are probably due to factionlogic only detecting the need of either Hullplates, or Claytronics, but not both at a time -->
+	<!--
+	<replace sel="/modules/module[@id='processing_hutt_scrap']/compatibilities">
+		<compatibilities>
+			<limits production="5" />
+			<maxlimits production="10"/>
+			<production ref="processing_gen" chance="100" respectquota="false" />
+			<production ref="recycling_gen" chance="100" respectquota="false" />
+			<production ware="energycells" chance="100" />
+		</compatibilities>
+	</replace>
+	
+	<replace sel="/modules/module[@id='processing_bls_scrap']/compatibilities">
+		<compatibilities>
+			<limits production="5" />
+			<maxlimits production="10"/>
+			<production ref="processing_gen" chance="100" respectquota="false" />
+			<production ref="recycling_gen" chance="100" respectquota="false" />
+			<production ware="energycells" chance="100" />
+		</compatibilities>
+	</replace>
+	-->
+
+</diff>

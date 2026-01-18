@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <replace sel="//rules/deployable/rules/ruleset[@type='default']">
+            <ruleset type="default">
+                  <rule category="mine" mk="3" weight="5" classes="ship_s ship_m" purposes="fight" />
+                  <rule category="mine" mk="3" weight="40" classes="ship_s ship_m" purposes="fight" factiontags="plunder"/>
+				
+				  <!-- Scouts -->
+                  <rule category="satellite" mk="2" weight="10" purposes="fight" classes="ship_s ship_m" />
+				  <rule category="resourceprobe" mk="1" weight="5" purposes="fight" classes="ship_s ship_m" />
+				  <rule category="navbeacon" mk="1" weight="5" purposes="fight" classes="ship_s ship_m" />
+				  
+				  <!-- X4 doesn't have "keep empty" rules set for deployables, so I'm commenting this out -->
+                  <!--<rule category="" mk="0" weight="80" classes="ship_s ship_m ship_l ship_xl" purposes="fight" />-->
+					
+				  <!-- Standard deployables for non-combat ships, probes only for mining categories -->
+                  <rule category="satellite" mk="2" weight="5" purposes="mine trade build auxiliary" />
+                  <rule category="resourceprobe" mk="1" weight="5" purposes="mine" />
+                  <rule category="navbeacon" mk="1" weight="5" purposes="mine trade build auxiliary" />
+				  
+				  <!-- X4 doesn't have "keep empty" rules set for deployables, so I'm commenting this out -->
+                  <!--<rule category="" mk="0" weight="80" classes="ship_s ship_m ship_l ship_xl" purposes="mine trade build auxiliary" />-->
+            </ruleset>
+      </replace>
+
+      <replace sel="//rules/unit/rules/ruleset[@type='default']">
+            <ruleset type="default">
+                  <!-- Stations -->
+                  <rule category="transport" mk="1" weight="50" classes="station" />
+                  <rule category="repair" mk="1" weight="10" classes="station" />
+				  <!-- Add only Construction/Building Drones for Fabrication modules, Police "drones" don't take up drone capacity -->
+                  <rule category="build" mk="1" weight="100" classes="buildmodule" important="true" />
+                  <rule category="police" mk="1" weight="5" classes="buildmodule" factiontags="watchdoguser" />
+                  <rule category="transport" mk="1" weight="75" classes="production" important="true" />
+                  <rule category="police" mk="1" weight="20" classes="production" factiontags="watchdoguser" />
+				  <rule category="repair" mk="1" weight="5"  classes="production" important="true"/>
+				  <!-- Prioritize Cargo/Transport Drones for Pier, and Storage modules -->
+                  <rule category="transport" mk="1" weight="95" classes="pier" important="true" />
+				  <rule category="transport" mk="1" weight="90" classes="storage" important="true" />
+				  <!-- Add Repair Drones for S/M Docks, Storage, Defence, and Habitation modules we'll handle Piers here too -->
+				  <rule category="repair" mk="1" weight="10"  classes="defencemodule habitation" important="true"/>
+				  <rule category="repair" mk="1" weight="5"  classes="dockarea pier storage" important="true"/>
+                  <!-- Ships -->
+                  <rule category="repair" mk="1" weight="15" classes="ship_l ship_xl" />
+                  <rule category="repair" mk="1" weight="40" classes="ship_l ship_xl" important="true" purposes="auxiliary" />
+                  <rule category="transport" mk="1" weight="20" classes="ship_l ship_xl" important="true" purposes="trade mine auxiliary" />
+                  <rule category="orecollector" mk="1" weight="40" classes="ship_l ship_xl" important="true" purposes="mine" cargotags="solid" requiredocking="true" requireundocking="true" />
+                  <rule category="gascollector" mk="1" weight="40" classes="ship_l ship_xl" important="true" purposes="mine" cargotags="liquid" requiredocking="true" requireundocking="true" />
+                  <rule category="build" mk="1" weight="100" classes="ship_l ship_xl" important="true" purposes="build dismantling" />
+                  <!-- plunder-using fight ships need cargolifters -->
+                  <rule category="transport" mk="1" weight="10" classes="ship_l ship_xl" important="true" purposes="fight" factiontags="plunder" />
+                  <!-- do not fill non-combat medium ships with defence drones completely -->
+                  <rule category="" mk="0" weight="10" classes="ship_m" purposes="trade mine build" />
+            </ruleset>
+      </replace>
+</diff>

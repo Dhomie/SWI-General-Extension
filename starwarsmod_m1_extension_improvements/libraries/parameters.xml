@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<diff>
+	<replace sel="/parameters/workforce/growth/@rate">100</replace>
+	<replace sel="/parameters/economy/prices/build/@shipsalefactor">1.0</replace>
+	<replace sel="/parameters/orders/failures/@queuemax">0</replace>
+</diff>

@@ -7,5 +7,6 @@
 		<ware ware="meat" />
 		<ware ware="spices" />
 		<ware ware="wheat" />
+		<ware ware="water" />
 	</add>
 </diff>

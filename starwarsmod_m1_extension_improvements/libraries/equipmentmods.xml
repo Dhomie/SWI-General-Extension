@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NB:
+      chance is a float from 0 to 1
+      entering a min with no max or max with no min can result in a value below min or above max.
+      the min property in <bonus min=""/> doesn't do anything.
+      min and max for capacity mods such as countermeasurecapacity require ints.-->
+<diff>
+	<!-- Blue Tier Ship Modifications-->
+	<replace sel="/equipmentmods/ship/mass[@ware='mod_ship_mass_01_mk2']">	<!-- Kuat Ship Modification -->
+		<mass ware="mod_ship_mass_01_mk2" quality="2" min="0.85" max="0.85">
+			<bonus chance="1.0" max="5">
+				<maxhull min="1.1" max="1.1" weight="1" />
+				<radarrange min="1.1" max="1.1" weight="1" />
+				<countermeasurecapacity min="5" max="5" weight="1" />
+				<missilecapacity min="5" max="5" weight="1" />
+				<unitcapacity min="5" max="5" weight="1"/>
+			</bonus>
+        </mass>
+	</replace>
+	<replace sel="/equipmentmods/ship/drag[@ware='mod_ship_drag_01_mk2']">	<!-- Bothan Ship Modification -->
+		<drag ware="mod_ship_drag_01_mk2" quality="2" min="0.85" max="0.85">	
+			<bonus chance="1.0" max="4">
+				<maxhull min="1.1" max="1.1" weight="1" />
+				<radarrange min="1.2" max="1.2" weight="1" />
+				<countermeasurecapacity min="5" max="5" weight="1"/>
+				<deployablecapacity min="5" max="5" weight="1"/>
+			</bonus>
+        </drag>
+	</replace>
+	
+	<!-- Purple Tier Ship Modifications-->
+	<replace sel="/equipmentmods/ship/mass[@ware='mod_ship_mass_01_mk3']">	<!-- Beskar Armor Plating -->
+		<mass ware="mod_ship_mass_01_mk3" quality="3" min="0.75" max="0.75">
+			<bonus chance="1.0" max="2">
+				<drag min="0.9" max="0.9" />
+				<maxhull min="1.25" max="1.25" />
+			</bonus>
+        </mass>
+	</replace>
+	
+	<!-- Blue Tier Shields -->
+	<replace sel="/equipmentmods/shield/capacity[@ware='mod_shield_capacity_01_mk2']">	<!-- Mon Calamari Shield Banks -->
+		<capacity ware="mod_shield_capacity_01_mk2" quality="2" min="1.25" max="1.25">
+			<bonus chance="1.0" max="1">
+				<rechargerate min="1.1" max="1.1" />
+          </bonus>
+        </capacity>
+	</replace>
+	<replace sel="/equipmentmods/shield/rechargerate[@ware='mod_shield_rechargerate_01_mk2']">	<!-- Incom Shield Banks -->
+		<rechargerate ware="mod_shield_rechargerate_01_mk2" quality="2" min="1.25" max="1.25">
+			<bonus chance="1.0" max="1">
+				<capacity min="1.1" max="1.1" />
+			</bonus>
+        </rechargerate>
+	</replace>
+	
+	<!-- Purple Tier Shields -->
+	<replace sel="/equipmentmods/shield/capacity[@ware='mod_shield_capacity_01_mk3']">	<!-- Kuat Shield Modification -->
+		<capacity ware="mod_shield_capacity_01_mk3" quality="3" min="1.5" max="1.5" />
+	</replace>
+	<replace sel="/equipmentmods/shield/rechargerate[@ware='mod_shield_rechargerate_01_mk3']">	<!-- Imperial Experimental Capacitor -->
+		<rechargerate ware="mod_shield_rechargerate_01_mk3" quality="3" min="1.5" max="1.5" />
+	</replace>
+	<replace sel="/equipmentmods/shield/capacity[@ware='mod_shield_capacity_02_mk3']">	<!-- Naboo Royal Shield Modification -->
+		<capacity ware="mod_shield_capacity_02_mk3" quality="3" min="1.25" max="1.25">
+          <bonus chance="1.0" max="1">
+				<rechargerate min="1.25" max="1.25" />
+			</bonus>
+        </capacity>
+	</replace>
+	
+</diff>

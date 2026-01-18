@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diff>
+<!-- Station replacers -->
+	
+	<!-- Remove Sienar from the Imperial Wharf faction list, this uses the primary Imperial Wharf plan, meant for standard factions -->
+	<replace sel="//stations/station[@id='wharf_imperial']/category/@faction">[galempire, ascendancy]</replace>
+	
+	<!-- Add Sienar from the Kuat Wharf faction list, this uses the Small Imperial Wharf plan, meant for corporations -->
+	<replace sel="//stations/station[@id='wharf_kuat']/category/@faction">[kuat, sienar]</replace>
+</diff>
