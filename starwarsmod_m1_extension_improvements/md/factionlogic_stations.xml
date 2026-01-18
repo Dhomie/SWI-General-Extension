@@ -3,7 +3,8 @@
 
 	<add sel="/mdscript/cues/library[@name='Manage_Stations']/cues/cue[@name='Process']/cues/cue[@name='Analyse_Stations']/actions/do_elseif[@value='@$DesiredShipyardPatchMarker']" pos="after">
 		<!-- Additional shipyards for factions having an XXL shipyard; as that is also counted as one, and can soft-lock some factions if both shipyards are destroyed, and only the XXL is set to rebuild -->
-		<do_if value="$Faction == faction.corporate or $Faction == faction.ascendancy or $Faction == faction.galempire">
+		<!-- BLS included here -->
+		<do_if value="$Faction == faction.corporate or $Faction == faction.ascendancy or $Faction == faction.galempire or $Faction == faction.commerceguild or $Faction == faction.blacksun">
 			<set_value name="$DesiredShipyards" operation="add" exact="1"/>
 		</do_if>
 	</add>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+	Default Relation Ranges:
+	  self:          1.0  to  1.0
+	  ally:          0.5  to  1.0
+	  member:        0.1  to  1.0
+	  friend:        0.01 to  1.0
+	  neutral:      -0.01 to  0.01
+	  enemy:        -1.0  to -0.01
+	  killmilitary: -1.0  to -0.1
+	  kill:         -1.0  to -0.32
+	  nemesis:      -1.0  to -1.0
+
+	UI value mapping (analogously for negative values):
+	  1.0       = 30
+	  0.5       = 27
+	  0.32      = 25
+	  0.1       = 20 
+	  0.032     = 15
+	  0.01      = 10
+	  0.0032    = 5
+
+	  -0.01 to -0.099999 - factions do not trade
+	  -0.1 - start to capture territory of one another
+
+	These values are fixed. Between them, logarithmic interpolation is used. Approximate formulas:
+	  uivalue = 10 * log10(relation * 1000)
+	  relation = 10^(uivalue / 10) / 1000
+	Between -0.0032 and +0.0032 (UI -5...+5) linear interpolation is used, and 0.00064 equates to one UI value step.
+-->
+
+<diff name="FactionGoal_Invade_Space">
+	<!-- Overwrite to check faction relations instead of using $ExpeditionEnemies -->
+	<!-- X4 uses spaces for sectioning, I use tabulators, so until I can be bothered to section lines proper, I'm adding 1 empty line here below, and before "/replace" -->
+	
+	<replace sel="/mdscript/cues/library[@name='Evaluate']">
+	
+	<!-- Replace the entire library for now -->
+	<library name="Evaluate">
+      <actions>
+		
+		<!-- ****************** -->
+		<!-- BEGIN CHANGES HERE -->
+		<!-- ****************** -->
+		
+		<!-- Change this variable to alter max expedition counts -->
+		<!-- Max expedition count per faction has been increased from 2 to 6 -->
+		<set_value name="$MaxExpeditionCount" exact="6"/>
+	  
+        <set_value name="$ExpeditionCount" exact="0"/>
+        <do_for_each name="$RunningGoal" in="$Goals">
+          <do_if value="$RunningGoal.static == md.FactionGoal_Invade_Space.Start and $RunningGoal.$ExpeditionForce">
+            <set_value name="$ExpeditionCount" operation="add"/>
+          </do_if>
+        </do_for_each>
+		
+		<!-- Get applicable enemies with relations of "killmilitary" instead of the $ExpeditionEnemies list -->
+		<!-- If no enemies were found, create an empty table -->
+		<get_factions_by_relation result="$Enemies" relation="killmilitary" faction="$Faction"/>
+		<do_if value="not $Enemies?">
+			<set_value name="$Enemies" exact="[]"/>
+		</do_if>
+		
+        <!-- Check if we can send out expeditions, and find viable sectors to do so in -->
+        <do_if value="($Enemies.count) and ($ExpeditionCount lt $MaxExpeditionCount)">
+          <set_value name="$EvaluationSectors" exact="$AdjacentSectors.clone"/>
+
+          <do_if value="$ClaimedSectors.count">
+            <find_sector name="$EvaluationSectors" excluded="$AdjacentSectors" owner="$Enemies" reachablefrom="$ClaimedSectors.{1}" append="true"/>
+          </do_if>
+        </do_if>
+		
+		<!-- **************** -->
+		<!-- END CHANGES HERE -->
+		<!-- **************** -->
+		
+		<!-- Check if any adjacent sectors are owned by enemies -->
+        <do_else>
+          <!--no need to clone the list-->
+          <set_value name="$EvaluationSectors" exact="$AdjacentSectors"/>
+        </do_else>
+        <shuffle_list list="$EvaluationSectors"/>
+        <do_all exact="$EvaluationSectors.count" counter="$Eval_Counter1">
+          <set_value name="$EvaluationTarget" exact="$EvaluationSectors.{$Eval_Counter1}"/>
+          <set_value name="$IsExpedition" exact="not $AdjacentSectors.indexof.{$EvaluationTarget}"/>
+          <debug_text text="'%1 evaluating %2 for invasion.'.[$Faction, $EvaluationTarget.knownname]" chance="$DebugChance2"/>
+
+          <!--Check if faction is contesting this sector. If so, it should rather get the Hold_Space goal (or it is part-way through invading)-->
+          <do_if value="not $EvaluationTarget.iscontestedby.{$Faction}">
+            <set_value name="$Valid" exact="true"/>
+            <!--Check if we are already invading the sector-->
+            <do_for_each name="$RunningGoal" in="$Goals">
+              <do_if value="$RunningGoal.static == md.FactionGoal_Invade_Space.Start">
+                <do_if value="$RunningGoal.$Target == $EvaluationTarget or ($IsExpedition and $RunningGoal.$LocalSectors.indexof.{$EvaluationTarget})">
+                  <debug_text text="'%1 evaluating %2 for invasion. Target already designated for invasion, discarding.'.[$Faction, $EvaluationTarget.knownname]" chance="$DebugChance2"/>
+                  <set_value name="$Valid" exact="false"/>
+                  <break/>
+                </do_if>
+              </do_if>
+            </do_for_each>
+
+            <do_if value="$Valid">
+              <!--Check if there are any enemy factions owning or contesting this sector-->
+              <run_actions ref="md.FactionGoal_Invade_Space.EvaluateSector" result="$Valid">
+                <param name="Faction" value="$Faction"/>
+                <param name="Sector" value="$EvaluationTarget"/>
+                <param name="DebugChance" value="$DebugChance2"/>
+              </run_actions>
+
+              <do_if value="$Valid">
+                <!--TODO: Evaluate weight-->
+                <set_value name="$EvaluatedWeight" min="0.1" max="1.0"/>
+                <debug_text text="'%1 considers %2 fair game. They want it %3 badly.'.[$Faction, $EvaluationTarget.knownname, $EvaluatedWeight]" chance="$DebugChance2"/>
+
+                <set_value name="$MatchingIntel" exact="null"/>
+                <do_all exact="$Intel.count" counter="$Intel_Counter">
+                  <do_if value="$Intel.{$Intel_Counter}.{1} == $EvaluationTarget">
+                    <set_value name="$MatchingIntel" exact="$Intel.{$Intel_Counter}"/>
+                    <break/>
+                  </do_if>
+                </do_all>
+
+                <do_if value="$MatchingIntel">
+                  <set_value name="$ReconData" exact="[$MatchingIntel.{2}, $MatchingIntel.{3}]"/>
+                  <debug_text text="'Evaluation: %1 has prior intel on %2. Recon_NumObjects: %3 Last updated: %4'.[$Faction, $EvaluationTarget.knownname, $ReconData.{1}, $ReconData.{2}]" chance="$DebugChance2"/>
+                </do_if>
+                <do_else>
+                  <set_value name="$ReconData" exact="[10, 0]"/>
+                  <debug_text text="'Evaluation: %1 has no intel on %2. Recon_NumObjects: %3 Last updated: %4'.[$Faction, $EvaluationTarget.knownname, $ReconData.{1}, $ReconData.{2}]" chance="$DebugChance2"/>
+                </do_else>
+
+                <append_to_list name="$EvaluatedGoals" exact="table[
+                                  $FactionCue = namespace,
+                                  $Faction = $Faction,
+                                  $TriggerCue = global.$FactionGoals.{$i}.$TriggerCue,
+                                  $Weight = $EvaluatedWeight,
+                                  $Target = $EvaluationTarget,
+                                  $ReconData = $ReconData,
+                                  $ExpeditionForce = $IsExpedition,
+                                  $DebugChance = $DebugChance,
+                                  $DebugChance2 = $DebugChance2]"/>
+
+                <remove_value name="$MatchingIntel"/>
+                <remove_value name="$ReconData"/>
+              </do_if>
+            </do_if>
+            <do_else>
+              <debug_text text="'%1 evaluating %2 for invasion. Target is friendly, discarding.'.[$Faction, $EvaluationTarget.knownname]" chance="0"/>
+            </do_else>
+          </do_if>
+        </do_all>
+        <remove_value name="$EvaluationSectors"/>
+        <remove_value name="$ExpeditionCount"/>
+		<remove_value name="$MaxExpeditionCount"/>
+		<remove_value name="$Enemies"/>
+      </actions>
+    </library>
+	
+	</replace>
+</diff>

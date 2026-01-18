@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mdscript name="Setup_SWI_Extension_Improvements" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
+	<cues>
+		<!-- Will run once, either on gamestart or when a game is loaded where this DLC was not active before, after the main SWI stuff is set up -->
+		<cue name="Setup" namespace="this" version="1">
+			<conditions>
+				<check_all>
+					<event_cue_signalled cue="md.Setup.Start"/>
+					<check_value value="player.galaxy.macro == macro.swi_galaxy_macro" comment="Only in main SWI galaxy" />
+				</check_all>
+			</conditions>
+
+			<actions>
+				<!-- Add missing Mining Guild, and BHG entry -->
+				<set_value name="md.Diplomacy.Start.$DiplomacyFactionTable.{faction.miningguild}" exact="table[$DiplomatAvailable = ['no'],
+                                                                                          $EventCapable = 'yes',
+                                                                                          $InateAgentExperience = 'no_agents']" />
+				
+				<set_value name="md.Diplomacy.Start.$DiplomacyFactionTable.{faction.bountyhunters}" exact="table[$DiplomatAvailable = ['no'],
+                                                                                          $EventCapable = 'yes',
+                                                                                          $InateAgentExperience = 'no_agents']" />
+				<!-- Set BLS, VLS, and Corporations to be event-capable -->
+				<!-- Create a table of these factions, then loop through each -->
+				<set_value name="$ExtraFactions" exact="[faction.blacksun, faction.valarian,
+					faction.moncal, faction.corellia, faction.sienar, faction.hoersh, faction.rendili, faction.incom, faction.transgalmeg, faction.kuat]"/>
+				
+				<do_for_each name="$ExtraFaction" in="$ExtraFactions">
+					<run_actions ref="md.Diplomacy.Start.Diplomacy_ActivateFactionLibrary">
+						<param name="Faction" value="$ExtraFaction" />
+						<param name="DiplomatCapable" value="no" />
+						<param name="EventCapable" value="true" />
+					</run_actions>
+					
+					<!-- Theoretically the above library function should do the rest with a delay, but to make absolutely sure, we enable events with a direct API call  -->
+					<!-- <set_faction_diplomacy_active faction="$ExtraFaction" active="true"/> -->
+                    <set_faction_diplomacy_events_allowed faction="$ExtraFaction" allow="true"/>
+                </do_for_each>
+
+				<show_help duration="15s" custom="'MOD: SWI-GR: Diplomacy updated.'"/>
+				
+				<!-- Cleanup -->
+				<remove_value name="$ExtraFactions" />
+			</actions>
+			
+			<!-- Handle patches template -->
+			<!--
+			<patch sinceversion="2">
+
+			</patch>
+			-->
+		</cue>
+		
+		<!-- Run Start_Actions on a new game -->
+		<!--
+		<cue name="Start" namespace="this">
+			<actions>
+				<include_actions ref="Start_Actions"/>
+				<cancel_cue cue="Game_Loaded"/>
+			</actions>
+		</cue>
+		-->
+		
+		<!-- Run Start_Actions when loading a savegame with the mod enabled for the first time -->
+		<!--
+		<cue name="Game_Loaded" namespace="this">
+			<conditions>
+				<event_game_loaded/>
+			</conditions>
+			<actions>
+				<include_actions ref="Start_Actions"/>
+				<cancel_cue cue="Start"/>
+			</actions>
+		</cue>
+		-->
+		
+		<!-- 1-time actions to perform here -->
+		<!--
+		<library name="Start_Actions">
+			<actions>
+			</actions>
+		</library>
+		-->
+	</cues>
+</mdscript>
