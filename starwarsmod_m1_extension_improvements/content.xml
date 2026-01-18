@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content id="SWI_Extension_Improvements" name="SWI General Improvements" description="Various general improvements: 1-minute module build time; production time for most wares on average 3x faster; reduced core ware cargo space; optimized, and rebalanced station plans for most major factions, and 275% Solar output for Concord Dawn." version="3" author="Dhomie/Grandpa Sawyer" save="0" date="2025-02-22" enabled = "1">
-	<dependency id="SW Interworlds" name="Star Wars Interworlds" optional="false"/>
-	<dependency id="SWI_Extension_SithExtension" name="SWI Active Sith Faction" optional="true"/>
+<content id="SWI_Extension_Improvements" name="SWI Galaxy Reimagined" description="Various general changes: Production time for most wares on average 3x faster; reduced core ware cargo space; optimized, and rebalanced station plans for most major factions, AI jobs overhaul, expanded diplomacy event-capable factions list, and more." version="4" author="Dhomie/Grandpa Sawyer" save="0" date="2026-01-18" enabled = "1">
+	<dependency id="ego_dlc_split" optional="false" name="Split Vendetta"/>
+	<dependency id="ego_dlc_terran" optional="false" name="Cradle of Humanity"/>
+	<dependency id="ego_dlc_pirate" optional="false" name="Tides of Avarice"/>
+	<dependency id="ego_dlc_boron" optional="false" name="Kingdom End"/>
+	<dependency id="ego_dlc_timelines" optional="false" name="Timelines"/>
+	<dependency id="SW Interworlds" optional="false" name="Star Wars Interworlds" />
+	<dependency id="SWI_Extension_SithExtension" optional="true" name="SWI Active Sith Faction" />
 	<dependency id="starwarsmod_cl_reborn" optional="true" name="SWI - Closed Loop Reborn"/>
 </content>
