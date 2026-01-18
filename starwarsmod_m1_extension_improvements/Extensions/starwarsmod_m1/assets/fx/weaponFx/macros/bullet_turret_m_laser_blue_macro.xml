@@ -7,9 +7,9 @@
 			<component ref="bullet_xs_blue_turbo" />
 			<properties>
 				<!--<ammunition value="3" reload="2" />-->
-				<bullet speed="2500" lifetime="1.55" amount="1" barrelamount="1" icon="weapon_gatling_mk1" timediff="0.015" angle="0.02" maxhits="1" ricochet="0" scale="0" attach="0" />
-				<reload rate="3" />
-				<damage value="180" shield="90"/>
+				<bullet speed="2800" lifetime="1.7" amount="1" barrelamount="1" icon="weapon_gatling_mk1" timediff="0.015" angle="0.02" maxhits="1" ricochet="0" scale="0" attach="0" />
+				<reload rate="2" />
+				<damage value="210" shield="120"/>
 				<effects>
 					<impact ref="impact_laser_s_red" />
 					<launch ref="muzzle_laser_s_blue" />

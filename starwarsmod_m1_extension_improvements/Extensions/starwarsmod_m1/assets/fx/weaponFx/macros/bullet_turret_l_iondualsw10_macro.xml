@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--<bullet speed="2500" lifetime="7" amount="1" barrelamount="2" icon="weapon_ion_mk2" timediff="0.015" angle="0.4" maxhits="1" ricochet="0" influencelist="ion_heavy_effect" scale="0" attach="0" selfdestruct="1" />
+    <reload rate="0.15" />
+    <damage value="425" shield="14000" />-->
+
+<!-- 1 Projectile per second: 3.33 -->
+<!-- This is an ion weapon, but it's already a 3.33 second reload time one, so it gets a 0.4 reload rate -->
+<diff>
+	<replace sel="//macros/macro/properties">
+		<properties>
+			<bullet speed="2500" lifetime="7" amount="1" barrelamount="2" icon="weapon_ion_mk2" timediff="0.015" angle="0.4" maxhits="1" ricochet="0" influencelist="ion_heavy_effect" scale="0" attach="0" selfdestruct="1" />
+			<reload rate="0.4" />
+			<damage value="320" shield="10510" />
+			<effects>
+				<impact ref="impact_ion_l" />
+				<launch ref="muzzle_ion_l" />
+			</effects>
+			<weapon system="turret_longrange" />
+		</properties>
+	</replace>
+</diff>

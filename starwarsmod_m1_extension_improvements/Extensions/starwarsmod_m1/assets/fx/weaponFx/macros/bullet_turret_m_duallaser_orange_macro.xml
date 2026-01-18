@@ -8,7 +8,7 @@
 			<component ref="bullet_xs_orange_turbo" />
 			<properties>
 				<!--<ammunition value="2" reload="3" />-->
-				<bullet speed="3175" lifetime="1.2" amount="1" barrelamount="2" icon="weapon_gatling_mk1" timediff="0.015" angle="0.02" maxhits="1" ricochet="0" scale="0" attach="0" />
+				<bullet speed="3500" lifetime="1.25" amount="1" barrelamount="2" icon="weapon_gatling_mk1" timediff="0.015" angle="0.02" maxhits="1" ricochet="0" scale="0" attach="0" />
 				<reload rate="2" />
 				<damage value="185" shield="125"/>
 				<effects>

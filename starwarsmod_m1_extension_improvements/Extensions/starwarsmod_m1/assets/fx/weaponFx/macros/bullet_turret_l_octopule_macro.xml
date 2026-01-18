@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--<ammunition value="5" reload="35" />
+    <bullet speed="2000" lifetime="7" delay="0.1" amount="1" barrelamount="8" icon="weapon_plasma_mk1" timediff="0.015" angle="0.6" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+    <reload rate="1" />
+    <damage value="1807" noshield="357" />-->
+
+<!--Exported by: nick (192.168.3.57) at 11.01.2020_17-07-04-->
+
+<!-- VANILLA SWI SETUP: -->
+<!-- 1 salvo time: 0.7 seconds -->
+<!-- 5 salvo time: (3.5 + 4) = 7.5 seconds -->
+<!-- Full firing cycle with reload time: (3.5 + 4 + 35) = 42.5 seconds -->
+<!-- Full firing cycle projectile count: 40 -->
+<!-- So, 1 Projectile fire rate per second (rounded): 0.94 -->
+<!-- Theoretically the projectile damage needs to be reduced by 3.75 (rounded) times for a 2 second RoF -->
+<diff>
+	<replace sel="//macros/macro/properties">
+		<properties>
+			<bullet speed="2000" lifetime="7" amount="1" barrelamount="8" icon="weapon_plasma_mk1" timediff="0.015" angle="0.6" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+			<reload rate="0.5" />
+			<damage value="482" noshield="95" />
+			<effects>
+				<impact ref="impact_turbolaser_l_green" />
+				<launch ref="muzzle_turbolaser_octo_green" />
+			</effects>
+			<sounds>
+				<firing ref="turret_l_turbo_flyby" repeat="-1" />
+			</sounds>
+			<weapon system="turret_longrange" />
+		</properties>
+	</replace>
+</diff>

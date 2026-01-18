@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--<ammunition value="4" reload="14" />
+    <bullet speed="2200" lifetime="7.3" amount="1" barrelamount="1" icon="weapon_plasma_mk1" timediff="0.015" angle="0.4" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+    reload rate="0.8" />
+    <damage value="8900" noshield="500" />-->
+
+<!-- Full Salvo time: 17.75 seconds -->
+<!-- 1 Projectile per second: 4.4375 -->
+<diff>
+	<replace sel="//macros/macro/properties">
+		<properties>
+			<bullet speed="2200" lifetime="7.3" amount="1" barrelamount="2" icon="weapon_plasma_mk1" timediff="0.015" angle="0.4" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+			<reload rate="0.5" />
+			<damage value="2005" noshield="113" />
+			<effects>
+				<impact ref="impact_turbolaser_l_green" />
+				<launch ref="muzzle_turbolaser_l_blue" />
+			</effects>
+			<sounds>
+				<firing ref="turret_l_turbo_flyby" repeat="-1" />
+			</sounds>
+			<weapon system="turret_longrange" />
+		</properties>
+	</replace>
+</diff>

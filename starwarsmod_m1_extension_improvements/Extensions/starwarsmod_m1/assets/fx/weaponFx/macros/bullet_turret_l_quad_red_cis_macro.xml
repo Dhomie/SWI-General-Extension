@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--<bullet speed="2200" lifetime="7" amount="1" barrelamount="2" icon="weapon_cannon_mk2" timediff="0.015" angle="0.3" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+    <reload rate="0.50" />
+    <damage value="1500" noshield="200" />-->
+
+
+<!-- 1 Projectile per second: 1 -->
+<!-- 1 Salvo per second: 4 -->
+<!-- Gotta add 2 more projectiles, and halve the damage, RoF can stay the same -->
+<diff>
+	<replace sel="//macros/macro/properties">
+		<properties>
+			<bullet speed="2200" lifetime="7" amount="1" barrelamount="4" icon="weapon_cannon_mk2" timediff="0.015" angle="0.3" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+			<reload rate="0.5" />
+			<damage value="750" noshield="100" />
+			<effects>
+				<impact ref="impact_turbolaser_m_red" />
+				<launch ref="muzzle_turbolaser_m_red" />
+			</effects>
+			<weapon system="turret_midrange" />
+		</properties>
+	</replace>
+</diff>

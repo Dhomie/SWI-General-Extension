@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--<bullet speed="2400" lifetime="6.1" amount="1" barrelamount="1" icon="weapon_plasma_mk1" timediff="0.018" angle="0.5" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+    <reload rate="0.2" />
+    <damage value="5525" noshield="1904" />-->
+
+
+<!-- THE actual 1-projectile ball turret -->
+<!-- 1 Projectile per seconds: 5 -->
+<!-- 1 Salvo/1 Projectiles per seconds: 5 -->
+<!-- Set RoF to 2 seconds, obviously compensate damage, and slightly increase the range -->
+<diff>
+	<replace sel="//macros/macro/properties">
+		<properties>
+			<bullet speed="2400" lifetime="6.5" amount="1" barrelamount="1" icon="weapon_plasma_mk1" timediff="0.018" angle="0.5" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+			<reload rate="0.5" />
+			<damage value="2763" noshield="762" />
+			<effects>
+				<impact ref="impact_turbolaser_l_red" />
+				<launch ref="muzzle_turbolaser_l_red" />
+			</effects>
+			<sounds>
+				<firing ref="turret_l_turbo_flyby" repeat="-1" />
+			</sounds>
+			<weapon system="turret_longrange" />
+		</properties>
+	</replace>
+</diff>

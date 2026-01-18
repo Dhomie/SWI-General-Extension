@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--<ammunition value="2" reload="5" />
+    <bullet speed="3000" lifetime="4.7" amount="1" barrelamount="1" icon="weapon_plasma_mk1" timediff="0.015" angle="0.55" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="0" />
+    <reload rate="0.3" />
+    <damage value="1000" hull="3550" noshield="4000" />-->
+
+<!-- 1 Salvo/Projectile per second: 4.165 (rounded) -->
+<!-- Let's set this one to 2 seconds, and a slightly better range -->
+<diff>
+	<replace sel="//macros/macro/properties">
+		<properties>
+			<bullet speed="3000" lifetime="5.0" amount="1" barrelamount="1" icon="weapon_plasma_mk1" timediff="0.015" angle="0.55" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="0" />
+			<reload rate="0.5" />
+			<damage value="480" hull="1705" noshield="1921" />
+			<effects>
+				<impact ref="impact_mando_massdriver" />
+				<launch ref="muzzle_mando_massdriver" />
+			</effects>
+			<weapon system="turret_longrange" />
+		</properties>
+	</replace>
+</diff>

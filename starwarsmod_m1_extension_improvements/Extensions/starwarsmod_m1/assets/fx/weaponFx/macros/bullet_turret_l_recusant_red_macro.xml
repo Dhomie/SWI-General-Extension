@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--<bullet speed="2200" lifetime="8" amount="1" barrelamount="2" icon="weapon_plasma_mk2" timediff="0.015" angle="0.25" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+    <reload rate="0.2" />
+    <damage value="6375" noshield="2500" />-->
+
+
+<!-- 1 Projectile per seconds: 2.5 -->
+<!-- 1 Salvo per seconds: 5 -->
+<!-- This is kinda fine, symbolic damage buff for the file to stay here -->
+<diff>
+	<replace sel="//macros/macro/properties">
+		<properties>
+			<bullet speed="2200" lifetime="8" amount="1" barrelamount="2" icon="weapon_plasma_mk2" timediff="0.015" angle="0.25" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+			<reload rate="0.2" />
+			<damage value="6380" noshield="2505" />
+			<effects>
+				<impact ref="impact_turbolaser_l_red" />
+				<launch ref="muzzle_turbolaser_l_red_prow" /> 
+			</effects>
+			<sounds>
+				<firing ref="turret_l_turbo_flyby" repeat="-1" />
+			</sounds>
+			<weapon system="turret_longrange" />
+		</properties>
+	</replace>
+</diff>
