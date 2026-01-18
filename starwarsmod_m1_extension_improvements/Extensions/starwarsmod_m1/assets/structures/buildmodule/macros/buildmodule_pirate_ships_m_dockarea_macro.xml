@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+	<remove sel="//macros/macro[@name='buildmodule_pirate_ships_m_dockarea_macro']/properties/ownership" />
+</diff>
