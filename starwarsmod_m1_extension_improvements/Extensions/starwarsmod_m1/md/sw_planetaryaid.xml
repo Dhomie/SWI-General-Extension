@@ -19,10 +19,10 @@
 				<cue name="FindFillStations" instantiate="true" checkinterval="10min" checktime="player.age + 15s">
 					<actions>
 						<!-- Reset the table every time we check for stations -->
-						<do_if value="$FillStationGroup">
+						<do_if value="$FillStationGroup?">
 							<remove_value name="$FillStationGroup" />
 						</do_if>
-						<create_group groupname="$FillStationGroup" />
+						<!--<create_group groupname="$FillStationGroup" />-->
 						
 						<find_station groupname="$FillStationGroup" append="true" multiple="true" space="player.galaxy" functional="true">
 							<!-- Exclude player and Sith stations, the latter is handled via a different script -->
@@ -40,17 +40,16 @@
 					</actions>
 				</cue>
 
-				<cue name="ProcessWaresLoop" instantiate="true" checkinterval="3min" checktime="player.age + 20s">
+				<cue name="ProcessWaresLoop" instantiate="true" checkinterval="2min" checktime="player.age + 20s">
 					<actions>
 						<set_value name="$delayalpha" exact="0s" />
 						<!-- Check if the station group exists, and only then try processing their storage -->
-						<do_if value="$FillStationGroup">
+						<do_if value="$FillStationGroup?">
 							<do_if value="$FillStationGroup.count" min="1">
 								<do_for_each name="$FillStation" in="$FillStationGroup">
-									<set_value name="$delayalpha" exact="($delayalpha + 1.0)s" />
+									<!--<set_value name="$delayalpha" exact="($delayalpha + 1.0)s" />-->
 									<run_actions ref="ProcessWares">
 										<param name="Station" value="$FillStation" />
-										<param name="Delay" value="$delayalpha" />
 									</run_actions>
 								</do_for_each>
 							</do_if>
@@ -62,9 +61,7 @@
 				<library name="ProcessWares" purpose="run_actions">
 					<params>
 						<param name="Station" />
-						<param name="Delay" />
 					</params>
-					<!--<delay exact="$Delay" />-->
 					
 					<actions>
 						<do_if value="$Station.exists">
@@ -97,8 +94,8 @@
 										<set_value name="$removeWaresAmount" exact="($waresAmount)i" />
 									</do_if>
 
-									<!-- Restore 1.5% of total wares (EXCLUDING RAW SCRAP) counts if they fall below 10%/5% every 3 minutes to avoid a total collapse -->
-									<do_if value="($waresAmount lt $maxWaresAmount * $storagePercentage) and ($ware != ware.rawscrap)">
+									<!-- Restore 1.5% of total wares (EXCLUDING RAW SCRAP) counts if they fall below 10%/5% every 2 minutes to avoid a total collapse -->
+									<do_if value="($waresAmount lt $maxWaresAmount * $storagePercentage) and ($ware != ware.rawscrap and $ware != ware.scrapmetal)">
 										<set_value name="$addWaresAmount" exact="($maxWaresAmount * 0.015)i" /> <!-- (number)i converts it to an integer -->
 									</do_if>
 									<do_if value="$addWaresAmount gt 0">
