@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Set the max distance to shipyard to 10 from 8 -->
+	<replace sel="/aiscript/attention/actions/do_if[@value='$fallbackshipyards.keys.count']/do_if/do_else/set_value/@exact">10</replace>
+	<!-- Set max number of subordinate requests to 100, so jobs with many S ships can restock in one go -->
+	<replace sel="/aiscript/attention/actions/set_value[@name='$maxrequests']/@exact">100</replace>
+</diff>
