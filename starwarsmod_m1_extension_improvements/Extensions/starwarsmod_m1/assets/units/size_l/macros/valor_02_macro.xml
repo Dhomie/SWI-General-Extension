@@ -2,6 +2,6 @@
 <!--Exported by: Michael (192.168.3.75) at 28.06.2021_16-04-09-->
 <diff>
 	<!-- Change the combat Valor's type to Expeditionary, since it can resupply ships -->
-	<replace sel="/macros/macro[@name='valor_02_macro']/properties/ship/@type ">expeditionary</replace>
+	<replace sel="/macros/macro[@name='valor_02_macro']/properties/ship/@type">expeditionary</replace>
 </diff>
 
