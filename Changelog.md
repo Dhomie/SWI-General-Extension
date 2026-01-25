@@ -6,6 +6,7 @@
 - Adjusted Station Battery Turrets damage and RoF to fire every 4 seconds from all available barrels, DPS remains the same.
 - Added AI-to-AI ship licence Diplomacy Action.
 - Added the Vindicator to Sienar's roster.
+- Unlocked relations with PIR for both new games, and existing saves.
 
 ### V4.0 (18.01.2026)
 - Initial full fledged release, see the README for full details.
