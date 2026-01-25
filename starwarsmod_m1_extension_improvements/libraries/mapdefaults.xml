@@ -3,7 +3,7 @@
 	<!-- Adding *factionlogic="false"* variable to *area* will prevent the AI factions from claiming it by normal means -->
 	
 	<!-- This is Concord Dawn, just named wrong -->
-	<replace sel="/defaults/dataset[@macro='swi_clusterconcorddown_macro']/properties/area">
-		<area sunlight="2.75" economy="1" security="1" />
-	</replace>
+	<replace sel="/defaults/dataset[@macro='swi_clusterconcorddown_macro']/properties/area/@sunlight">2.5</replace>
+	<!-- This is Milagro, just named wrong -->
+	<replace sel="/defaults/dataset[@macro='swi_clustermillagro_macro']/properties/area/@sunlight">2.1</replace>
 </diff>

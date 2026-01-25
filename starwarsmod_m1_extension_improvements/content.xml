@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<content id="SWI_Extension_Improvements" name="SWI Galaxy Reimagined" description="Various general changes: Production time for most wares on average 3x faster; reduced core ware cargo space; optimized, and rebalanced station plans for most major factions, AI jobs overhaul, expanded diplomacy event-capable factions list, and more." version="4" author="Dhomie/Grandpa Sawyer" save="0" date="2026-01-18" enabled = "1">
+<content id="SWI_Extension_Improvements" name="SWI Galaxy Reimagined" description="Various general changes: Production time for most wares on average 3x faster; reduced core ware cargo space; optimized, and rebalanced station plans for most major factions, AI jobs overhaul, expanded diplomacy event-capable factions list, and more." version="410" author="Dhomie/Grandpa Sawyer" save="0" date="2026-01-25" enabled = "1">
 	<dependency id="ego_dlc_split" optional="false" name="Split Vendetta"/>
 	<dependency id="ego_dlc_terran" optional="false" name="Cradle of Humanity"/>
 	<dependency id="ego_dlc_pirate" optional="false" name="Tides of Avarice"/>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff>
+	<add sel="/language">
+		<page id="7152025" voice="no">
+			<t id="1">Negotiate 1-way faction ship licence exchange</t>
+			<t id="2">Promote cooperation between 2 factions by investing into future ship licencing. The licence giver faction will be able to build vessels for the licence receiver faction.</t>
+			<t id="3">Assign an Agent to promote a 1-way all-ship production licence exchange.</t>
+			<t id="4">Licence giver can build ships for the licence receiver.</t>
+			<t id="5">Licence exchange treaties were signed successfully.</t>
+			
+			<t id="6">Negotiate 1-way faction ship licence removal</t>
+			<t id="7">Negotiate peaceful licence removal between 2 factions by compensating for short-term economic losses. The licence giver faction will cease building vessels for the licence receiver faction.</t>
+			<t id="8">Assign an Agent to negotiate a 1-way all-ship production licence removal.</t>
+			<t id="9">Licence giver can no longer build ships for the licence receiver.</t>
+			<t id="10">Licence exchange treaties were nullified with peaceful agreements.</t>
+		</page>
+	</add>
+</diff>

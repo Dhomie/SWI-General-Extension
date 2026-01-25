@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='utf-8'?>
+<diff>
+  <add sel="/mdscript/cues/cue[@name='Start']/cues/cue[@name='EmbassyCues']/cues/cue[@name='AgentManagement']/cues/cue[@name='AgentActions']/cues/cue[@name='NegotiationActions']/cues">
+    <cue name="Action_Faction_Licence_Add" instantiate="true" namespace="this">
+      <conditions>
+        <event_diplomacy_action_operation_started />
+        <check_value value="event.param.action.id == 'negotiate_faction_licence_exchange'" />
+      </conditions>
+      <actions>
+        <debug_text text="'Diplomatic Action ' + event.param.action.id + ' started'" />
+        <set_value name="$DebugChance" exact="Start.$DebugChance" />
+        <set_value name="$Operation" exact="event.param" />
+        <set_value name="$ActionDuration" exact="$Operation.duration" />
+        <set_value name="$ActionID" exact="$Operation.action.id" />
+        <set_value name="$Agent" exact="$Operation.agent" />
+
+        <!-- Params are different for each Action -->
+        <set_value name="$Faction1" exact="$Operation.action.$faction1"/>
+        <set_value name="$Faction2" exact="$Operation.action.$faction2"/>
+      </actions>
+      <cues>
+
+        <!-- Remove Influence, inventory items and potential bribes from the HQ inventory, or the player inventory if the  -->
+        <cue name="Action_Faction_Licence_Add_DeductCost">
+          <actions>
+            <run_actions ref="CostDeduction_DiplomaticAction">
+              <param name="Operation" value="$Operation" />
+            </run_actions>
+          </actions>
+        </cue>
+
+        <!-- Calculate the success when the DA is started, based on the seed as to avoid save scumming. Additionally, DAs can also be failed if the destination is destroyed -->
+        <cue name="Action_Faction_Licence_Add_SuccessCalculation_v2">
+          <actions>
+            <!-- Calculate the success chance based on the Agent parameters and base success chance -->
+            <run_actions ref="Success_Evaluation" result="$ResultList">
+              <param name="ActionID" value="$ActionID" />
+              <param name="Agent" value="$Agent" />
+            </run_actions>
+            <set_value name="$Success" exact="$ResultList.{1}" />
+            <set_value name="$BribeEffect" exact="$ResultList.{2}" />
+            <set_value name="$AgentOutcome" exact="$ResultList.{3}" />
+
+            <debug_text text="'Diplomatic Action ' + $Operation.action.id + ' will be sucessful if not aborted'" chance="if $Success then 100 else 0" />
+          </actions>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Add_DurationHandling">
+          <delay exact="$ActionDuration" />
+          <actions>
+            <signal_cue cue="Action_Faction_Licence_Add_Completed" />
+          </actions>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Add_AgentMovement">
+          <actions>
+            <set_value name="$OriginStation" exact="$Agent.station" />
+            <signal_cue_instantly cue="md.NPC_Agent.Update_AgentPlacement" param="[$Agent, ['on_mission']]" />
+
+            <!-- Determine travel time or cancel the cue -->
+            <do_if value="$Destination?">
+              <estimate_travel_time result="$EstimatedTravelTime" start="player.headquarters" ship="$Agent.diplomacy.ship" target="$Destination" uselocalhighways="true" />
+              <set_value name="$TravelTime" exact="[$EstimatedTravelTime, 15min].min" />
+            </do_if>
+            <do_else>
+              <!-- No destination, so we do not need to keep this cue going -->
+              <cancel_cue cue="this" />
+            </do_else>
+          </actions>
+          <cues>
+
+            <cue name="Action_Faction_Licence_Add_CloneHandling" ref="AgentActor_CloneHandling">
+              <param name="ActionSetupCue" value="Action_Faction_Licence_Add" />
+              <param name="CleanupCue" value="Action_Faction_Licence_Add_Cleanup" />
+              <param name="Agent" value="$Agent" />
+              <param name="Destination" value="$Destination" />
+              <param name="TravelTime" value="$TravelTime" />
+            </cue>
+
+          </cues>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Add_DestinationCheck" onfail="cancel">
+          <conditions>
+            <check_value value="$Destination?" />
+          </conditions>
+          <cues>
+            <cue name="Action_Faction_Licence_Add_DestinationDestroyed">
+              <conditions>
+                <event_object_destroyed object="$Destination" />
+              </conditions>
+              <actions>
+                <!--Set $Success to false, then signal Action_Faction_Licence_Add_Completed -->
+                <set_value name="$Success" exact="false" />
+                <signal_cue cue="Action_Faction_Licence_Add_Completed" />
+              </actions>
+            </cue>
+          </cues>
+        </cue>
+
+        <!-- If player aborts we clean up the action and return the agent safely (but influence, inventory items and potential bribes are still lost) -->
+        <cue name="Action_Faction_Licence_Add_Abort">
+          <conditions>
+            <event_diplomacy_action_operation_aborted operation="$Operation" />
+          </conditions>
+          <actions>
+            <cancel_cue cue="Action_Faction_Licence_Add_DurationHandling" comment="immediately stop the countdown to completion" />
+            <set_value name="$DiplomaticAction_Aborted" />
+            <signal_cue_instantly cue="md.NPC_Agent.Update_AgentPlacement" param="[$Agent, ['hq_available']]" />
+
+            <signal_cue cue="Action_Faction_Licence_Add_Cleanup" />
+          </actions>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Add_Completed">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <do_if value="not $DiplomaticAction_Aborted?">
+              <!-- Signal that the action ran through and was not aborted by the player -->
+              <signal_cue_instantly cue="DiplomaticActionCounter" param="[$ActionID, $Success]" />
+            </do_if>
+
+            <!-- If the Action failed and there is a risk to the agent, calculate if the Agent is injured or dies, or if they return -->
+            <set_value name="$Risk" exact="diplomacy.action.{$ActionID}.agent.risk" />
+            <do_if value="not $Success">
+              <do_if value="$Risk != agentrisk.none">
+                <run_actions ref="Risk_EvaluateOutcome" result="$AgentOutcome">
+                  <param name="AgentOutcome" value="$AgentOutcome" />
+                  <param name="Agent" value="$Agent" />
+                </run_actions>
+              </do_if>
+              <do_else>
+                <set_value name="$AgentOutcome" exact="agentresult.survived" />
+                <speak actor="$Agent" line="6011" delay="3s" />
+              </do_else>
+            </do_if>
+            <do_else>
+              <set_value name="$AgentOutcome" exact="agentresult.survived" />
+              <!-- If the Action succeeded, trigger Rewards (which will delay cleanup) -->
+              <speak actor="$Agent" line="6010" delay="3s" />
+              <signal_cue_instantly cue="Action_Faction_Licence_Add_FinalRewards" />
+            </do_else>
+
+            <!-- If the agent survived, add the relevant experience, based on the risk and ActionID type -->
+            <do_if value="$AgentOutcome == agentresult.survived">
+              <do_if value="not $DiplomaticAction_Aborted?">
+                <run_actions ref="AgentExperience_RewardEvaluation">
+                  <param name="ActionID" value="$ActionID" />
+                  <param name="Risk" value="$Risk" />
+                  <param name="Agent" value="$Agent" />
+                </run_actions>
+              </do_if>
+              <!-- Then return the agent back to the HQ-->
+              <signal_cue_instantly cue="md.NPC_Agent.Update_AgentPlacement" param="[$Agent, ['hq_available']]" />
+            </do_if>
+
+            <do_if value="not $Success">
+              <!-- The Mission was not a success so we clean up the action now -->
+              <signal_cue cue="Action_Faction_Licence_Add_Cleanup" />
+            </do_if>
+          </actions>
+        </cue>
+
+        <!-- Deactivate Protocol Null as the reward -->
+        <cue name="Action_Faction_Licence_Add_FinalRewards">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+			<!-- "faction" is the receiver, "licencefaction" is the giver -->
+			<!-- For safety, let's first remove the licences if they already exist -->
+			<remove_licence faction="$Faction1" licencefaction="$Faction2" type="capitalship" />
+			<remove_licence faction="$Faction1" licencefaction="$Faction2" type="militaryship" />
+			<remove_licence faction="$Faction1" licencefaction="$Faction2" type="generaluseship" />
+			
+			<!-- Now we can add the licences -->
+			<add_licence faction="$Faction1" licencefaction="$Faction2" type="capitalship" />
+			<add_licence faction="$Faction1" licencefaction="$Faction2" type="militaryship" />
+			<add_licence faction="$Faction1" licencefaction="$Faction2" type="generaluseship" />
+
+            <!-- The Mission was sucessful and we triggered all rewards, clean up the action now -->
+            <signal_cue cue="Action_Faction_Licence_Add_Cleanup" />
+          </actions>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Add_Cleanup">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <do_if value="$DiplomaticAction_Aborted?">
+              <set_value name="$AgentOutcome" exact="agentresult.survived" />
+            </do_if>
+            <do_else>
+              <!-- Mark the Action as complete -->
+              <complete_diplomacy_action_operation operation="$Operation" success="$Success" agentresult="$AgentOutcome" />
+            </do_else>
+
+            <run_actions ref="Generate_ActionLogbookEntry">
+              <param name="Operation" value="$Operation" />
+              <param name="ActionID" value="$ActionID" />
+              <param name="Agent" value="$Agent" />
+              <param name="AgentOutcome" value="$AgentOutcome" />
+              <param name="Success" value="$Success" />
+              <param name="Aborted" value="if $DiplomaticAction_Aborted? then true else false" />
+              <param name="DestinationString" value="{20005,9015}" />
+              <param name="BribeEffect" value="$BribeEffect" />
+            </run_actions>
+
+            <debug_text text="'Diplomatic Action ' +   $Operation.action.id + ' finished, and is cleaning up'" />
+            <cancel_cue cue="parent" />
+          </actions>
+        </cue>
+
+      </cues>
+    </cue>
+  </add>
+
+  <add sel="/mdscript/cues/cue[@name='Start']/cues/cue[@name='EmbassyCues']/cues/cue[@name='AgentManagement']/cues/cue[@name='AgentActions']/cues/cue[@name='NegotiationActions']/cues">
+    <cue name="Action_Faction_Licence_Remove" instantiate="true" namespace="this">
+      <conditions>
+        <event_diplomacy_action_operation_started />
+        <check_value value="event.param.action.id == 'negotiate_faction_licence_removal'" />
+      </conditions>
+      <actions>
+        <debug_text text="'Diplomatic Action ' + event.param.action.id + ' started'" />
+        <set_value name="$DebugChance" exact="Start.$DebugChance" />
+        <set_value name="$Operation" exact="event.param" />
+        <set_value name="$ActionDuration" exact="$Operation.duration" />
+        <set_value name="$ActionID" exact="$Operation.action.id" />
+        <set_value name="$Agent" exact="$Operation.agent" />
+
+        <!-- Params are different for each Action -->
+        <set_value name="$Faction1" exact="$Operation.action.$faction1"/>
+        <set_value name="$Faction2" exact="$Operation.action.$faction2"/>
+      </actions>
+      <cues>
+
+        <!-- Remove Influence, inventory items and potential bribes from the HQ inventory, or the player inventory if the  -->
+        <cue name="Action_Faction_Licence_Remove_DeductCost">
+          <actions>
+            <run_actions ref="CostDeduction_DiplomaticAction">
+              <param name="Operation" value="$Operation" />
+            </run_actions>
+          </actions>
+        </cue>
+
+        <!-- Calculate the success when the DA is started, based on the seed as to avoid save scumming. Additionally, DAs can also be failed if the destination is destroyed -->
+        <cue name="Action_Faction_Licence_Remove_SuccessCalculation_v2">
+          <actions>
+            <!-- Calculate the success chance based on the Agent parameters and base success chance -->
+            <run_actions ref="Success_Evaluation" result="$ResultList">
+              <param name="ActionID" value="$ActionID" />
+              <param name="Agent" value="$Agent" />
+            </run_actions>
+            <set_value name="$Success" exact="$ResultList.{1}" />
+            <set_value name="$BribeEffect" exact="$ResultList.{2}" />
+            <set_value name="$AgentOutcome" exact="$ResultList.{3}" />
+
+            <debug_text text="'Diplomatic Action ' + $Operation.action.id + ' will be sucessful if not aborted'" chance="if $Success then 100 else 0" />
+          </actions>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Remove_DurationHandling">
+          <delay exact="$ActionDuration" />
+          <actions>
+            <signal_cue cue="Action_Faction_Licence_Remove_Completed" />
+          </actions>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Remove_AgentMovement">
+          <actions>
+            <set_value name="$OriginStation" exact="$Agent.station" />
+            <signal_cue_instantly cue="md.NPC_Agent.Update_AgentPlacement" param="[$Agent, ['on_mission']]" />
+
+            <!-- Determine travel time or cancel the cue -->
+            <do_if value="$Destination?">
+              <estimate_travel_time result="$EstimatedTravelTime" start="player.headquarters" ship="$Agent.diplomacy.ship" target="$Destination" uselocalhighways="true" />
+              <set_value name="$TravelTime" exact="[$EstimatedTravelTime, 15min].min" />
+            </do_if>
+            <do_else>
+              <!-- No destination, so we do not need to keep this cue going -->
+              <cancel_cue cue="this" />
+            </do_else>
+          </actions>
+          <cues>
+
+            <cue name="Action_Faction_Licence_Remove_CloneHandling" ref="AgentActor_CloneHandling">
+              <param name="ActionSetupCue" value="Action_Faction_Licence_Remove" />
+              <param name="CleanupCue" value="Action_Faction_Licence_Remove_Cleanup" />
+              <param name="Agent" value="$Agent" />
+              <param name="Destination" value="$Destination" />
+              <param name="TravelTime" value="$TravelTime" />
+            </cue>
+
+          </cues>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Remove_DestinationCheck" onfail="cancel">
+          <conditions>
+            <check_value value="$Destination?" />
+          </conditions>
+          <cues>
+            <cue name="Action_Faction_Licence_Remove_DestinationDestroyed">
+              <conditions>
+                <event_object_destroyed object="$Destination" />
+              </conditions>
+              <actions>
+                <!--Set $Success to false, then signal Action_Faction_Licence_Remove_Completed -->
+                <set_value name="$Success" exact="false" />
+                <signal_cue cue="Action_Faction_Licence_Remove_Completed" />
+              </actions>
+            </cue>
+          </cues>
+        </cue>
+
+        <!-- If player aborts we clean up the action and return the agent safely (but influence, inventory items and potential bribes are still lost) -->
+        <cue name="Action_Faction_Licence_Remove_Abort">
+          <conditions>
+            <event_diplomacy_action_operation_aborted operation="$Operation" />
+          </conditions>
+          <actions>
+            <cancel_cue cue="Action_Faction_Licence_Remove_DurationHandling" comment="immediately stop the countdown to completion" />
+            <set_value name="$DiplomaticAction_Aborted" />
+            <signal_cue_instantly cue="md.NPC_Agent.Update_AgentPlacement" param="[$Agent, ['hq_available']]" />
+
+            <signal_cue cue="Action_Faction_Licence_Remove_Cleanup" />
+          </actions>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Remove_Completed">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <do_if value="not $DiplomaticAction_Aborted?">
+              <!-- Signal that the action ran through and was not aborted by the player -->
+              <signal_cue_instantly cue="DiplomaticActionCounter" param="[$ActionID, $Success]" />
+            </do_if>
+
+            <!-- If the Action failed and there is a risk to the agent, calculate if the Agent is injured or dies, or if they return -->
+            <set_value name="$Risk" exact="diplomacy.action.{$ActionID}.agent.risk" />
+            <do_if value="not $Success">
+              <do_if value="$Risk != agentrisk.none">
+                <run_actions ref="Risk_EvaluateOutcome" result="$AgentOutcome">
+                  <param name="AgentOutcome" value="$AgentOutcome" />
+                  <param name="Agent" value="$Agent" />
+                </run_actions>
+              </do_if>
+              <do_else>
+                <set_value name="$AgentOutcome" exact="agentresult.survived" />
+                <speak actor="$Agent" line="6011" delay="3s" />
+              </do_else>
+            </do_if>
+            <do_else>
+              <set_value name="$AgentOutcome" exact="agentresult.survived" />
+              <!-- If the Action succeeded, trigger Rewards (which will delay cleanup) -->
+              <speak actor="$Agent" line="6010" delay="3s" />
+              <signal_cue_instantly cue="Action_Faction_Licence_Remove_FinalRewards" />
+            </do_else>
+
+            <!-- If the agent survived, add the relevant experience, based on the risk and ActionID type -->
+            <do_if value="$AgentOutcome == agentresult.survived">
+              <do_if value="not $DiplomaticAction_Aborted?">
+                <run_actions ref="AgentExperience_RewardEvaluation">
+                  <param name="ActionID" value="$ActionID" />
+                  <param name="Risk" value="$Risk" />
+                  <param name="Agent" value="$Agent" />
+                </run_actions>
+              </do_if>
+              <!-- Then return the agent back to the HQ-->
+              <signal_cue_instantly cue="md.NPC_Agent.Update_AgentPlacement" param="[$Agent, ['hq_available']]" />
+            </do_if>
+
+            <do_if value="not $Success">
+              <!-- The Mission was not a success so we clean up the action now -->
+              <signal_cue cue="Action_Faction_Licence_Remove_Cleanup" />
+            </do_if>
+          </actions>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Remove_FinalRewards">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <!-- "faction" is the receiver, "licencefaction" is the giver -->
+			<!-- Remove the licences -->
+			<remove_licence faction="$Faction1" licencefaction="$Faction2" type="capitalship" />
+			<remove_licence faction="$Faction1" licencefaction="$Faction2" type="militaryship" />
+			<remove_licence faction="$Faction1" licencefaction="$Faction2" type="generaluseship" />
+
+            <!-- The Mission was sucessful and we triggered all rewards, clean up the action now -->
+            <signal_cue cue="Action_Faction_Licence_Remove_Cleanup" />
+          </actions>
+        </cue>
+
+        <cue name="Action_Faction_Licence_Remove_Cleanup">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <do_if value="$DiplomaticAction_Aborted?">
+              <set_value name="$AgentOutcome" exact="agentresult.survived" />
+            </do_if>
+            <do_else>
+              <!-- Mark the Action as complete -->
+              <complete_diplomacy_action_operation operation="$Operation" success="$Success" agentresult="$AgentOutcome" />
+            </do_else>
+
+            <run_actions ref="Generate_ActionLogbookEntry">
+              <param name="Operation" value="$Operation" />
+              <param name="ActionID" value="$ActionID" />
+              <param name="Agent" value="$Agent" />
+              <param name="AgentOutcome" value="$AgentOutcome" />
+              <param name="Success" value="$Success" />
+              <param name="Aborted" value="if $DiplomaticAction_Aborted? then true else false" />
+              <param name="DestinationString" value="{20005,9015}" />
+              <param name="BribeEffect" value="$BribeEffect" />
+            </run_actions>
+
+            <debug_text text="'Diplomatic Action ' +   $Operation.action.id + ' finished, and is cleaning up'" />
+            <cancel_cue cue="parent" />
+          </actions>
+        </cue>
+
+      </cues>
+    </cue>
+  </add>
+
+</diff>

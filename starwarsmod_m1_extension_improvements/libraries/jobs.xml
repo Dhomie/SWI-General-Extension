@@ -20,6 +20,38 @@
 		Sith Empire - XL Harrowers with L Terminus escorts, with swarms of high-tier S ships
 		
 		General Economy: S couriers reduced to bare minimum, higher priortiy for more efficient L and M transports-->
+		
+	<!-- SITH EMPIRE -->
+    <!-- Initial Sectors: 2 -->
+    <!-- Civilian Faction: None -->
+	
+	<!-- Inquisitor patrol, gets 3 less S, but 2 L escorts -->
+	<replace sel="//jobs/job[@id='sith_harrower_i_patrol']/subordinates">
+		<subordinates>
+			<subordinate job="sith_fighter_escort" />
+			<subordinate job="sith_fighter_escort" />
+			<subordinate job="sith_fighter_escort" />
+			<subordinate job="sith_fighter_escort" />
+			<subordinate job="sith_fighter_escort" />
+			<subordinate job="sith_fighter_escort" />
+			<subordinate job="sith_terminus_escort_l" />
+			<subordinate job="sith_terminus_escort_l" />
+        </subordinates>
+	</replace>
+	
+	<!-- 0/2/1 -> 1/2/1 -->
+	<replace sel="//jobs/job[@id='sith_harrower_inquisition']/quota">
+		<quota galaxy="1" maxgalaxy="2" sector="1" />
+	</replace>
+	
+	<!-- Set interval timers to low numbers -->
+	<replace sel="//jobs/job[@id='sith_harrower_inquisition_rare']/time/@interval">210</replace>
+	<replace sel="//jobs/job[@id='sith_terminus_inquisition']/time/@interval">90</replace>
+	<replace sel="//jobs/job[@id='sith_fighter_outer_patrol']/time/@interval">45</replace>
+	
+	<!-- Expand tags for these patrols -->
+	<replace sel="//jobs/job[@id='sith_harrower_inquisition_rare']/category/@tags">[factionlogic, military, harrower, expedition]</replace>
+	<replace sel="//jobs/job[@id='sith_terminus_inquisition']/category/@tags">[factionlogic, military, terminus_inqusition]</replace>
 	
 	
 	<!-- GALACTIC EMPIRE -->

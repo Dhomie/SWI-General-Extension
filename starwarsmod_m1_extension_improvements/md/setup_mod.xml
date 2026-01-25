@@ -2,7 +2,7 @@
 <mdscript name="Setup_SWI_Extension_Improvements" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
 	<cues>
 		<!-- Will run once, either on gamestart or when a game is loaded where this DLC was not active before, after the main SWI stuff is set up -->
-		<cue name="Setup" namespace="this" version="1">
+		<cue name="Setup" namespace="this" version="2">
 			<conditions>
 				<check_all>
 					<event_cue_signalled cue="md.Setup.Start"/>
@@ -42,12 +42,11 @@
 				<remove_value name="$ExtraFactions" />
 			</actions>
 			
-			<!-- Handle patches template -->
-			<!--
+			<!-- Handle patches -->
 			<patch sinceversion="2">
-
+				<!-- Unlock relations with PIR for previous versions only, new games handled in factions.xml -->
+				<set_faction_relation_locked faction="faction.valarian" locked="false"/>
 			</patch>
-			-->
 		</cue>
 		
 		<!-- Run Start_Actions on a new game -->
