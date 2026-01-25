@@ -3,19 +3,17 @@
     <reload rate="0.14" />
     <damage value="1445" shield="13500" />-->
 
-<!-- 1 Projectile per second: 7.14 -->
-<!-- This is an ion weapon, but it's already a 7.14 second reload time one, so it gets a 0.4 reload rate -->
+<!-- VANILLA SWI SETUP: -->
+<!-- 1 salvo time: 7.14 seconds -->
+<!-- Full firing cycle with reload time: 7.14 seconds -->
+<!-- Full firing cycle projectile count: 2 -->
+<!-- 1 Projectile per second: 3.57 -->
+
+<!-- 0.35x (rounded) modifier for damage -->
 <diff>
-	<replace sel="//macros/macro/properties">
-		<properties>
-			<bullet speed="2200" lifetime="7.4" amount="1" barrelamount="2" icon="weapon_ion_mk2" timediff="0.015" angle="0.25" maxhits="1" influencelist="ion_heavy_effect" ricochet="0" scale="0" attach="0" selfdestruct="1" />
-			<reload rate="0.4" />
-			<damage value="504" shield="4712" />
-			<effects>
-				<impact ref="impact_ion_l" />
-				<launch ref="muzzle_ion_l" />
-			</effects>
-			<weapon system="turret_longrange" />
-		</properties>
+	<replace sel="//macros/macro/properties/reload/@rate">0.4</replace>
+	<!-- 505.75/7385, rounding these -->
+	<replace sel="//macros/macro/properties/damage">
+		<damage value="510" shield="4725"/>
 	</replace>
 </diff>

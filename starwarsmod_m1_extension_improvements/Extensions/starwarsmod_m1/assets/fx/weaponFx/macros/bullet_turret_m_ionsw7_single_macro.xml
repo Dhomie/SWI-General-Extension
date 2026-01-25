@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!-- <ammunition value="3" reload="12" />
+    <bullet speed="2300" lifetime="6.3" amount="1" barrelamount="1" icon="weapon_ion_mk1" timediff="0.018" angle="0.4" maxhits="1" ricochet="0" scale="0" influencelist="ion_medium_effect" attach="0" />
+    <reload rate="0.6" />
+    <damage value="1275" shield="20000" />-->
+
+<!-- VANILLA SWI SETUP: -->
+<!-- 3 salvo time: 3.3333 seconds -->
+<!-- Full firing cycle with reload time: (3.33 + 12) = 15.33 seconds -->
+<!-- Full firing cycle projectile count: 3 -->
+<!-- 1 Projectile per second: 5.1111 -->
+
+<!-- 0.5x (rounded) modifier for damage, but gotta divide by 2 because of projectile increase per firing cycle -->
+<diff>
+	<remove sel="//macros/macro/properties/ammunition" />
+	<replace sel="//macros/macro/properties/reload/@rate">0.4</replace>
+	<!-- 637.5/10000, rounding these -->
+	<replace sel="//macros/macro/properties/damage">
+		<damage value="640" shield="10000"/>
+	</replace>
+</diff>

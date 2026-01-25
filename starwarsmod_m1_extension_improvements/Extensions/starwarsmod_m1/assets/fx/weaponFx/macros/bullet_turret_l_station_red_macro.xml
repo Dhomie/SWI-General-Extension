@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Exported by: Markus (192.168.3.123) at 04.02.2019_11-25-25-->
-<macros>
-  <macro name="bullet_turret_l_station_red_macro" class="bullet">
-    <component ref="bullet_l_red_turbo" />
-    <properties>
-      <ammunition value="2" reload="10" />
-      <bullet speed="3000" lifetime="7.4" amount="1" barrelamount="1" icon="weapon_plasma_mk1" timediff="0.015" angle="0.2" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
-      <reload rate="2" />
-      <damage value="7000" noshield="1150" />
-      <effects>
-        <impact ref="impact_turbolaser_l_red" />
-        <launch ref="muzzle_turbolaser_l_red" />
-      </effects>
-      <sounds>
-        <firing ref="turret_l_turbo_flyby" repeat="-1" />
-      </sounds>
-      <weapon system="turret_longrange" />
-    </properties>
-  </macro>
-</macros>
+    <!-- <ammunition value="2" reload="10" />
+    <bullet speed="3000" lifetime="7.4" amount="1" barrelamount="1" icon="weapon_plasma_mk1" timediff="0.015" angle="0.2" maxhits="1" ricochet="0" scale="0" attach="0" selfdestruct="1" />
+    <reload rate="2" />
+    <damage value="7000" noshield="1150" />-->
+
+<!-- VANILLA SWI SETUP: -->
+<!-- 2 salvo time: 1 seconds -->
+<!-- Full firing cycle with reload time: (1 + 10) = 11 seconds -->
+<!-- Full firing cycle projectile count: 2 -->
+<!-- 1 Projectile per second: 5.5 -->
+
+<!-- 0.73x (rounded modifier for damage, but gotta divide by 2 because of projectile increase per firing cycle -->
+<!-- Multiply damage by 0.37 (rounded) -->
+<diff>
+	<remove sel="//macros/macro/properties/ammunition" />
+	<replace sel="//macros/macro/properties/bullet/@barrelamount">2</replace>
+	<replace sel="//macros/macro/properties/reload/@rate">0.25</replace>
+	<!-- 2590/425.5, rounding these -->
+	<replace sel="//macros/macro/properties/damage">
+		<damage value="2590" noshield="430"/>
+	</replace>
+</diff>
