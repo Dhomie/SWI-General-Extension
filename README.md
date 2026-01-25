@@ -16,6 +16,7 @@
 * Most L Turrets', (and some M Turrets' that should be L) rate-of-fire has been standardized to fire from all barrels every 2 seconds. Damage adjusted, so the DPS remains the same.
   
 ### AI General Changes
+* Unlocked relations with PIR.
 * Fixed rare case of Tugs attempting to deliver invalid wrecks having no scrap value.
 * Expanded diplomacy event-capable factions list. This means most corporations, minor factions, and organized pirates (PIR and BLS).
 * New Diplomacy Actions allowing AI-to-AI ship licence exchanges, and removals.
@@ -27,9 +28,9 @@
 * Overhauled Heavy Concussion Missile's recipe.
 * Re-added the X4 Generic S/M Fabrication/Maintenance modules.
 * Ship Fab/Maint modules (excluding the XXL Maint) no longer claim sectors. You'll need an Admin, or Golan XXL Maintenance module for that.
-* Workforce upkeep has been increased. Cycle time changed from every 600 seconds to 360.
+* Workforce upkeep has been increased. Cycle time changed from 600 seconds to 360.
 * Some factions can build more ships: MCS -> Arquitens | ICG -> Geonosian Frigate | Kuat -> Dreadnought Cruiser | Kamino -> Katana Dreadnought | Sienar -> VSD2, Vindicator | INC -> Defender Corvette | IMP/ASC -> Harbor Auxiliary
-* Changes to loot drop rates for better mod crafting.
+* Changed loot drop rates for better mod crafting.
 * Various AI station plan changes both for optimization, and war balancing.
 * Loadout rule changes, the AI now has better drone allocation (ie. Repair Drones), and spends more resources on their ships to equip them with deployables and such.
 * Some equipment mods have been improved.
