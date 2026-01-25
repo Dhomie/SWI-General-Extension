@@ -187,6 +187,12 @@
 	<add sel="/wares/ware[@id='vsd2']">
 		<owner faction="sienar" />
 	</add>
+	<add sel="/wares/ware[@id='engine_vindicator']">
+		<owner faction="sienar" />
+	</add>
+	<add sel="/wares/ware[@id='vindicator']">
+		<owner faction="sienar" />
+	</add>
 	<add sel="/wares/ware[@id='dreadnaught_alliance']">
 		<owner faction="kuat" />
 	</add>
