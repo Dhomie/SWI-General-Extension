@@ -18,6 +18,7 @@
 ### AI General Changes
 * Fixed rare case of Tugs attempting to deliver invalid wrecks having no scrap value.
 * Expanded diplomacy event-capable factions list. This means most corporations, minor factions, and organized pirates (PIR and BLS).
+* New Diplomacy Actions allowing AI-to-AI ship licence exchanges, and removals.
 * Experimental change to the `expedition` logic. Max AI `expedition` goals count increased from 2 to 6, and expeditions can now target any `killmilitary` (-20 or less relations) factions.
 
 ### Economy Changes
@@ -27,7 +28,7 @@
 * Re-added the X4 Generic S/M Fabrication/Maintenance modules.
 * Ship Fab/Maint modules (excluding the XXL Maint) no longer claim sectors. You'll need an Admin, or Golan XXL Maintenance module for that.
 * Workforce upkeep has been increased. Cycle time changed from every 600 seconds to 360.
-* Some factions can build more ships: MCS -> Arquitens | ICG -> Geonosian Frigate | Kuat -> Dreadnought Cruiser | Kamino -> Katana Dreadnought | Sienar -> VSD2 | INC -> Defender Corvette | IMP/ASC -> Harbor Auxiliary
+* Some factions can build more ships: MCS -> Arquitens | ICG -> Geonosian Frigate | Kuat -> Dreadnought Cruiser | Kamino -> Katana Dreadnought | Sienar -> VSD2, Vindicator | INC -> Defender Corvette | IMP/ASC -> Harbor Auxiliary
 * Changes to loot drop rates for better mod crafting.
 * Various AI station plan changes both for optimization, and war balancing.
 * Loadout rule changes, the AI now has better drone allocation (ie. Repair Drones), and spends more resources on their ships to equip them with deployables and such.
@@ -41,3 +42,4 @@
 * Combat jobs fleet compositions have been reworked, optimized. Pool of pickable ships expanded in general (ie. IMP and ASC have a chance to pick better TIE variants).
 * Added extra job tags to fleets, so the AI can use more for expeditions and invasions.
 * Due to the reworked economy, despite the total ship count reduction, more ships might exist at once than in base SWI.
+* Adjusted some non-Crisis Sith jobs to be more active for expansion
